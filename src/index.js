@@ -1,5 +1,5 @@
 let age = prompt('How old are you?');
 
-age = 100;
+age = parseInt(age) + 13;
 
-console.log(age);
+alert("Your age is " + age); 
