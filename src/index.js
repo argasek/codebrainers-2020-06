@@ -1,9 +1,16 @@
-let age = prompt('How old are you?');
-let parsedAge = parseInt(age);
-console.log(age, parsedAge);
-if (isNaN(parsedAge)) {
-    alert("Wpisz liczbę!! ");
-} else {
-    age = parsedAge + 13;
-    alert("Your age is " + age);
+let currentYear = prompt('Hello, could you tell me what year is now?');
+let userYear = prompt('In this step tell me what year you were born')
+let intCurrentYear = parseInt(currentYear);
+let intUserYear = parseInt(userYear)
+let userAge = intCurrentYear - intUserYear
+
+switch (true) {
+    case isNaN(intCurrentYear):
+        alert('Please, give me a number');
+        break;
+    case isNaN(intUserYear):
+        alert('Please, give me a number');
+        break;
+    default:
+        alert('You are ' + userAge + ' years old')
 }
