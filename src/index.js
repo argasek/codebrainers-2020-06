@@ -3,9 +3,9 @@ let parsedAge = parseInt(age);
 console.log(age, parsedAge);
 if (isNaN(parsedAge)) {
     alert("Wpisz liczbę!! ");
-} else if (age == 0) {
-    alert("Are You Serious? ");
-} else if (age < 0, age >= 140) {
+} else if (age <= 0) {
+    alert(age + "?? " + " I don't think so...");
+} else if (age >= 140) {
     alert(age + "?? " + " I don't think so...");
 }
 // else if (parseFloat(age)) {
