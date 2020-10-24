@@ -1,11 +1,4 @@
-const someString = 'Ala ma kota, kot ma mysz.';
-// console.log(someString.length-1);
-
-let reversedString = "";
-
-for (let i = someString.length-1; i >= 0; i--) {
-  reversedString += someString[i];
-
+// Draws number from 1..n
+function drawNumber(n) {
+  return Math.floor(Math.random() * n) + 1;
 }
-
-console.log(reversedString);
