@@ -1,16 +1,21 @@
-let currentYear = prompt('Hello, could you tell me what year is now?');
-let userYear = prompt('In this step tell me what year you were born')
-let intCurrentYear = parseInt(currentYear);
-let intUserYear = parseInt(userYear)
-let userAge = intCurrentYear - intUserYear
+let age = prompt('Proszę podaj ile masz lat');
+let parsedAge = parseInt(age);
+let parsedFloat = parseFloat(age);
+// let isFloat = !Number.isSafeInteger(parsedFloat);
 
 switch (true) {
-    case isNaN(intCurrentYear):
-        alert('Please, give me a number');
-        break;
-    case isNaN(intUserYear):
-        alert('Please, give me a number');
-        break;
-    default:
-        alert('You are ' + userAge + ' years old')
-}
+case isNaN(parsedAge):
+alert('Podaj liczbę');
+break;
+case parsedAge === 0:
+alert('Nie jesteś aż tak młody');
+break;
+case parsedAge < 0:
+alert('Bez przesady...');
+break
+// case isFloat:
+// alert('Tyle to może ważyć mąka');
+// break
+default:
+alert('Masz ' + parsedAge + ' lat')
+} 
