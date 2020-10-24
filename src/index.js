@@ -16,7 +16,7 @@ function askQuestion() {
 let correctAnswersCount = 0;
 let i;
 
-const numberOfQuestions = 5;
+const numberOfQuestions = 4;
 
 for (i = 0; i < numberOfQuestions; i++) {
   const result = askQuestion();
@@ -27,15 +27,13 @@ for (i = 0; i < numberOfQuestions; i++) {
 
 const incorrectAnswersCount = numberOfQuestions - correctAnswersCount;
 
-alert(`Number of correct answers: ${correctAnswersCount}, Number of incorrect answers: ${incorrectAnswersCount}`)
-if (correctAnswersCount===numberOfQuestions){
-    alert ("You passed the test");
-}
+const passedOrNot = correctAnswersCount === numberOfQuestions ? 'passed' : "didn't pass";
 
-console.log(i);
-console.log(correctAnswersCount);
+let message = '';
 
-// for (let i = 0; i < 100; i++) {
-//   const a = Math.random() * 10;
-//   console.log(Math.floor(a) + 1);
-// }
+message += `Correct answers: ${correctAnswersCount}, `;
+message += `incorrect answers: ${incorrectAnswersCount}. `;
+message += `You ${passedOrNot} the test!`;
+
+alert(message);
+
