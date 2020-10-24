@@ -5,8 +5,8 @@ function drawNumber(n) {
 
 function askQuestion() {
   const range = 10;
-  let x = drawNumber(range);
-  let y = drawNumber(range);
+  const x = drawNumber(range);
+  const y = drawNumber(range);
   console.log(x, y);
   const answer = prompt("How much is " + x + " * " + y + " ?");
   const parsedAnswer = parseFloat(answer);
@@ -16,12 +16,18 @@ function askQuestion() {
 let correctAnswersCount = 0;
 let i;
 
-for (i = 0; i < 5; i++) {
-  let result = askQuestion();
+const numberOfQuestions = 5;
+
+for (i = 0; i < numberOfQuestions; i++) {
+  const result = askQuestion();
   if (result === true) {
     correctAnswersCount++;
   }
 }
+
+const incorrectAnswersCount = numberOfQuestions - correctAnswersCount;
+
+alert(`Number of correct answers: ${correctAnswersCount}, Number of incorrect answers: ${incorrectAnswersCount}`)
 
 console.log(i);
 console.log(correctAnswersCount);
