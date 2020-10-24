@@ -4,14 +4,16 @@ function drawNumber(n) {
 }
 
 function askQuestion() {
-    let x;
-    let y;
+    const range = 10;
+    let x = drawNumber(range);
+    let y = drawNumber(range);
     console.log(x, y);
     prompt("How much is " + x + " * " + y + " ?" );
 
 }
-
-askQuestion();
+for (let i = 0; i < 5; i++) {
+  askQuestion();
+}
 
 // for (let i = 0; i < 100; i++) {
 //   const a = Math.random() * 10;
