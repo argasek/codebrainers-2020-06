@@ -8,12 +8,15 @@ function askQuestion() {
     let x = drawNumber(range);
     let y = drawNumber(range);
     console.log(x, y);
-    prompt("How much is " + x + " * " + y + " ?" );
-
+    const answer = prompt("How much is " + x + " * " + y + " ?" );
+    const parsedAnswer = parseFloat(answer);
+    return x * y === parsedAnswer;
 }
 for (let i = 0; i < 5; i++) {
-  askQuestion();
+    let result = askQuestion();
+    console.log (result);
 }
+
 
 // for (let i = 0; i < 100; i++) {
 //   const a = Math.random() * 10;
