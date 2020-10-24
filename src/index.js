@@ -1,22 +1,30 @@
 // Draws number from 1..n
 function drawNumber(n) {
-  return Math.floor((Math.random() * n)) + 1;
+  return Math.floor(Math.random() * n) + 1;
 }
 
 function askQuestion() {
-    const range = 10;
-    let x = drawNumber(range);
-    let y = drawNumber(range);
-    console.log(x, y);
-    const answer = prompt("How much is " + x + " * " + y + " ?" );
-    const parsedAnswer = parseFloat(answer);
-    return x * y === parsedAnswer;
-}
-for (let i = 0; i < 5; i++) {
-    let result = askQuestion();
-    console.log (result);
+  const range = 10;
+  let x = drawNumber(range);
+  let y = drawNumber(range);
+  console.log(x, y);
+  const answer = prompt("How much is " + x + " * " + y + " ?");
+  const parsedAnswer = parseFloat(answer);
+  return x * y === parsedAnswer;
 }
 
+let correctAnswersCount = 0;
+let i;
+
+for (i = 0; i < 5; i++) {
+  let result = askQuestion();
+  if (result === true) {
+    correctAnswersCount++;
+  }
+}
+
+console.log(i);
+console.log(correctAnswersCount);
 
 // for (let i = 0; i < 100; i++) {
 //   const a = Math.random() * 10;
