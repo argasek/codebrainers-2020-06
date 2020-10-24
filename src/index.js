@@ -28,6 +28,9 @@ for (i = 0; i < numberOfQuestions; i++) {
 const incorrectAnswersCount = numberOfQuestions - correctAnswersCount;
 
 alert(`Number of correct answers: ${correctAnswersCount}, Number of incorrect answers: ${incorrectAnswersCount}`)
+if (correctAnswersCount===numberOfQuestions){
+    alert ("You passed the test");
+}
 
 console.log(i);
 console.log(correctAnswersCount);
