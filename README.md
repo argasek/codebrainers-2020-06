@@ -1,8 +1,29 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-06-24
 
-### Homework
+Task 1.
+Implement algorithm which draws 6 numbers in range `[1..49]`
+and puts them in the array.
+
+Task 2.
+Modify the algorithm in such way that numbers drawn never repeat.
+So: if the first number drawn is, for example, `36`, then `36` cannot
+appear as any other of the 5 drawn numbers.
+
+Task 3*.
+Implement algorithm which compares two arrays filled with numbers,
+assuming they have equal number of elements (`.length`s), like these:
+```
+const a = [15, 22, 7, 49, 3, 2];
+const b = [15, 7, 22, 18, 38, 2];
+``` 
+so it returns number of the elements which are the same and appear in
+both arrays.
+
+
+### Homework 2020-06-22
 
 This is where all homework will be put.
 
