@@ -5,11 +5,24 @@ function drawNumber(n) {
 
 
 // TASK 1
+  // const range = 49;
+  // const outcome = [];
+
+  // for (let i = 0; i < 6; i++) {
+  //   const result = drawNumber(range);
+  //   outcome.push(result);
+  // }
+  // alert("Randomization results: " + outcome + ".");
+
+
+  // TASK 2
   const range = 49;
   const outcome = [];
 
-  for (let i = 0; i < 6; i++) {
+  while(outcome.length < 6) {
     const result = drawNumber(range);
-    outcome.push(result);
+    if(outcome.indexOf(result) === -1) {
+      outcome.push(result);
+    }
   }
-  alert("Randomization results: " + outcome + ".");
+  alert("Randomization (unique) results: " + outcome + ".");
