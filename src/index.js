@@ -7,6 +7,7 @@ function lotto() {
   const range = 49;
   const a = drawNumber(range);
   console.log(a);
+  return
 }
 
 function lottoTable() {
