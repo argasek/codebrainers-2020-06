@@ -1,11 +1,11 @@
 function isRepeated (arrayOfNumbers, number) {
-let repeated = false;
-for(let i = 0; i < arrayOfNumbers.length; i++) {
-if (arrayOfNumbers[i] === number) {
-repeated = true;
-}
-}
-return repeated;
+    let repeated = false;
+    for(let i = 0; i < arrayOfNumbers.length; i++) {
+        if (arrayOfNumbers[i] === number) {
+             repeated = true;
+        }
+    }
+    return repeated;
 }
 
 
@@ -19,13 +19,14 @@ if (firstArray.length === secondArray.length) {
          sameElements.push(firstArray[i]);
     }
 }
+
     let message = "";
     message += `There are ${sameElements.length} elements `;
     message += "which are the same and appear in both arrays.";
     return message;
 }
 else {
-    const longerArray =  firstArray > secondArray ? "First" : "Second";
+    const longerArray =  firstArray.length > secondArray.length ? "First" : "Second";
     return `They don't have equal number of elements. ${longerArray} is longer.`;
 }
 }
