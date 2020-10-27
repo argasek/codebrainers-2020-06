@@ -1,6 +1,6 @@
-// Draws number from 1..n
+// Draws number from 0..n-1
 function drawNumber(n) {
-  return Math.floor(Math.random() * n) + 1;
+     return Math.floor(Math.random() * n);
 }
 
 function fillNumbersAvailable() {
@@ -11,19 +11,23 @@ function fillNumbersAvailable() {
   return numbersAvailable;
 } 
 
-
 const numbers = [22, 11, 14, 8, 3, 16];
 
 function drawNumbers() {
   const numbersDrawn = [];
+  const numbersAvailable = fillNumbersAvailable();
   while(numbersDrawn.length < 6) {
-    const result = drawNumber(49);
-    if (numbersDrawn.indexOf(result) === -1) {
+      const index = drawNumber(49 - numbersDrawn.length);
+      const removedNumbers = numbersAvailable.splice(index, 1);
+      const result = removedNumbers[0];
       numbersDrawn.push(result);
-    }
   }
 
   return numbersDrawn;
 }
 
 console.log(drawNumbers());
+
+// console.log(fillNumbersAvailable());
+
+//array.splice(start, deleteCount[, item1[, item2[, ...]]])
