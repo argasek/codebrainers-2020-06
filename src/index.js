@@ -13,6 +13,13 @@ function fillNumbersAvailable() {
 
 const numbers = [22, 11, 14, 8, 3, 16];
 
+
+function compare(a, b) {
+  return a - b;
+}
+
+
+
 function drawNumbers() {
   const numbersDrawn = [];
   const numbersAvailable = fillNumbersAvailable();
@@ -23,8 +30,9 @@ function drawNumbers() {
       numbersDrawn.push(result);
   }
 
-  return numbersDrawn;
+  return numbersDrawn.sort(compare);
 }
+
 
 console.log(drawNumbers());
 
