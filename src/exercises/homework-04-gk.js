@@ -20,13 +20,14 @@ function checkedNumbers() {
         }
         else {
             result.push(sorted1[0]);
-            sorted1.splice(0,1);
-            sorted2.splice(0,1);
+            sorted1.shift();
+            sorted2.shift();
         }
     }
     return result;
 }
 
+const numbersArray = checkedNumbers();
+const hitNumbers = numbersArray.slice(0,3);
 
-
-console.log(checkedNumbers());
+console.log(hitNumbers);
