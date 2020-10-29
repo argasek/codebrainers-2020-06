@@ -11,14 +11,12 @@ const sorted2 = numbers2.sort(compare);
 
 function checkedNumbers() {
     const result= [];
-    while (result.length < 6) {
+    while (sorted1.length > 0 || sorted2.length > 0) {
         if (sorted1[0] > sorted2[0]) {
-            sorted2.splice(0,1);
-        }
-        if (sorted1[0] < sorted2[0]) {
-            sorted1.splice(0,1);
-        }
-        else {
+            sorted2.shift();
+        } else if (sorted1[0] < sorted2[0]) {
+            sorted1.shift();
+        } else {
             result.push(sorted1[0]);
             sorted1.shift();
             sorted2.shift();
@@ -27,7 +25,5 @@ function checkedNumbers() {
     return result;
 }
 
-const numbersArray = checkedNumbers();
-const hitNumbers = numbersArray.slice(0,3);
+console.log(checkedNumbers());
 
-console.log(hitNumbers);
