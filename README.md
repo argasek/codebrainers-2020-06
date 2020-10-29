@@ -1,7 +1,29 @@
 
 ## Codebrainers 2020-06
 
-### Homework 2020-06-24
+### Homework 2020-10-29
+
+#### Task 1.
+Implement `intersection(arr1, arr2)` algorithm which uses two new function:
+`Array.includes() (see MDN)`
+`Array.filter() (see MDN)`
+
+Example of `.filter()` call:
+```
+[1,2,3,4,5,6,7].filter(function (item) { return !(item % 3); });
+[3, 6]
+```
+See Task 3 from Homework 2020-10-24.
+
+Assume no numbers repeat within arr1 or arr2 array and they consist of
+numbers only and there are no nested arrays.
+
+#### Task 2*.
+Verify if set of three numbers `[a, b, c]` (let's say, [15, 2, -3])
+could be used as coefficients of quadratic equation which has solutions
+in domain of real numbers.
+
+### Homework 2020-10-24
 
 Task 1.
 Implement algorithm which draws 6 numbers in range `[1..49]`
@@ -23,7 +45,7 @@ so it returns number of the elements which are the same and appear in
 both arrays.
 
 
-### Homework 2020-06-22
+### Homework 2020-10-22
 
 This is where all homework will be put.
 
