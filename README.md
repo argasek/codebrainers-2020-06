@@ -1,6 +1,20 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-03
+
+#### Task 1.
+
+So, knowing that
+```
+0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 === 1.0
+```
+is `false`, find out what can you do in order to compare these two values and obtain `true` result.
+
+#### Task 2.
+
+
+
 ### Homework 2020-10-29
 
 #### Task 1.
