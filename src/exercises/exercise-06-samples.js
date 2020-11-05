@@ -30,10 +30,10 @@
 
 //  next samples: (najwieksza liczba)
 
-// const values = [6, 1, 13, 5, 20, 666, 113];
-//
-// const max = values.reduce(function (acc, item, index, arr) {
-//   console.log(acc, item);
-//   return Math.max(acc, item);
-// });
-// console.log(max);
+const values = [6, 1, 13, 5, 20, 666, 113];
+
+const max = values.reduce(function (acc, item, index, arr) {
+  console.log(acc, item);
+  return Math.max(acc, item);
+});
+console.log(max);
