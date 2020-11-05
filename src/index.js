@@ -1,24 +1,18 @@
-function unique(values) {
-  return values.reduce(function (accumulator, value) {
-    if (accumulator.indexOf(value) === -1) {
-      accumulator.push(value);
-    }
+class Student {
+  constructor(fullName, numberOfBoozeUnits = 0) {
+    this.fullName = fullName;
+    this.numberOfBoozeUnits = numberOfBoozeUnits;
+  }
 
-    return accumulator;
-  }, []);
 }
 
-function uniqueViaFilter(values) {
-  return values.filter(function (value, i, arr) {
-    return arr.indexOf(value) === i;
-  });
-}
+const students = [
+  new Student('Alicja'),
+  new Student('Grzegorz'),
+  new Student('Rafał', 1),
+  new Student('Szymon H.'),
+  new Student('Szymon T.'),
+];
 
-function uniqueViaSort(values) {
-  let previousValue;
-  return values.sort().reduce(function (accumulator, value) {
-    if (value !== previousValue) accumulator.push(value);
-    previousValue = value;
-    return accumulator;
-  }, []);
-}
+// Print names of all students and their number of beers
+// Calculate average number of beers possessed by any student.
