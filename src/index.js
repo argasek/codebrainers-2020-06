@@ -7,12 +7,23 @@ class Student {
 }
 
 const students = [
-  new Student('Alicja'),
-  new Student('Grzegorz'),
+  new Student('Alicja', 30),
+  new Student('Grzegorz', 5),
   new Student('Rafał', 1),
-  new Student('Szymon H.'),
-  new Student('Szymon T.'),
+  new Student('Szymon H.', 60),
+  new Student('Szymon T.', 60),
 ];
 
 // Print names of all students and their number of beers
 // Calculate average number of beers possessed by any student.
+
+students.forEach(function(student) {
+  console.log(student.fullName, student.numberOfBoozeUnits);
+});
+
+const averageBeers = students.reduce(function(beers, student) {
+  console.log()
+  return beers.numberOfBoozeUnits + student.numberOfBoozeUnits;
+});
+
+console.log('On average, each student owns ' + averageBeers + ' Beers');
