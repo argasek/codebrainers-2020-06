@@ -1,6 +1,37 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-05
+
+#### Task 1.
+
+Fix code in `index.js`, so it works correctly (i.e.)
+`averageBeers` returns numbers of beers per student on
+average. Right now it returns `NaN` for some reason ;-)
+
+Hint: use `console.log()` in order to figure out what's
+going on wrong with the code (for example, by displaying
+values of `.reduce()` anonymous function parameters).
+
+#### Task 2.
+
+Create to objects like this:
+```
+const studentA = new Student('Anonymous', 0);
+const studentB = new Student('Anonymous', 0);
+```
+
+try to compare these objects:
+
+```
+console.log(stundentA === studentB);
+```
+
+Are they equal? If not, how could we determine if two
+objects are equal? Try to implement function (or even better,
+method!) which checks for equality of two `Student` objects.
+
+
 ### Homework 2020-11-03
 
 #### Task 1.
