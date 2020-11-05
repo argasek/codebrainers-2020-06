@@ -5,7 +5,7 @@
 const arrayRepeated = [1, 2, 2, 2, 5, 1, 22, 22, 3, 2, 1, 5, 7, 9];
 function result (array){
     const ArrayWithoutRepetition = [];
-    const arr = array.filter(function (singleItem){
+    array.filter(function (singleItem){
         if (!ArrayWithoutRepetition.includes(singleItem)){
             ArrayWithoutRepetition.push(singleItem)
         }
