@@ -1,20 +1,26 @@
 // Task 1 
 
-// So, knowing that 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 === 1.0 is `false`, 
-//find out what can you do in order to compare these two values and obtain `true` result.
+// Zadanie domowe nr 2: używając znanych Ci metod Array (reduce, indexOf, includes, push, filter, map etc.) zaprojektuj funkcję, 
+// która jako argument przyjmuje tablicę liczb Number i zwraca posortowaną rosnąco tablicę liczb z usuniętymi duplikatami. Czyli np. dla tablicy:
 
+// [1, 2, 2, 2, 5, 1, 22, 22, 3, 2, 1, 5, 7, 9]
+// zwróci:
+// [1, 2, 3, 5, 7, 9, 22]
 
-let a = 1
-let b = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 
-let c = 0.1 * 10
-let epsilon = Number.EPSILON
+// Do implementacji algorytmu nie możesz skorzystać z pętli do/while, while ani for. 
+// wskazówka: skorzystaj z .reduce i jako początkową wartość akumulatora ustaw pustą tablicę - []
 
-console.log(b); console.log(b === 1);
+let array = [1, 2, 2, 2, 5, 1, 22, 22, 3, 2, 1, 5, 7, 9];
 
-// SOLUTION 1
+let sortedArray = array.sort(function(a, b){
+  return a-b
+});
 
-console.log(c * 10 / 10); console.log(c * 10 / 10 === 1);
+let sortedUniqueArray = sortedArray.reduce(function(a,b){
+  if (a.slice(-1)[0] !== b) a.push(b); // nie usuwamy ostatniego elementu tablicy
+  return a;
+},[]); // pusta tablica jest akumulatorem
+  
+console.log(sortedArray);
+console.log(sortedUniqueArray);
 
-// SOLUTION 2 
-
-console.log(b - 1 < epsilon);
