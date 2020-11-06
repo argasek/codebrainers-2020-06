@@ -20,10 +20,25 @@ const students = [
 students.forEach(function(student) {
   console.log(student.fullName, student.numberOfBoozeUnits);
 });
-
-const averageBeers = students.reduce(function(beers, student) {
-  console.log()
-  return beers.numberOfBoozeUnits + student.numberOfBoozeUnits;
-});
+const initialValue = 0;
+const averageBeers = students.reduce(function(acc, currentValue) {
+  return acc + currentValue.numberOfBoozeUnits
+}, initialValue) / students.length;
 
 console.log('On average, each student owns ' + averageBeers + ' Beers');
+const studentA = new Student('Anonymous', 0);
+const studentB = new Student('Anonymous', 0);
+
+// Manually
+function comapringTwoInstances(first, second) {
+  const isFirstInstanceOfclass = first instanceof Student;
+  const isSecondInstanceOfclass = second instanceof Student;
+  const nameEquality = studentA.fullName === studentB.fullName; 
+  const BoozeEquality = studentA.numberOfBoozeUnits === studentB.numberOfBoozeUnits;
+  return isFirstInstanceOfclass && isSecondInstanceOfclass && nameEquality && BoozeEquality
+}
+console.log(comapringTwoInstances(studentA, studentB));
+//Stringify
+console.log(JSON.stringify(studentB) === JSON.stringify(studentA));
+
+
