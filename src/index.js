@@ -22,8 +22,7 @@ students.forEach(function(student) {
 });
 
 const averageBeers = students.reduce(function(beers, student) {
-  console.log()
-  return beers.numberOfBoozeUnits + student.numberOfBoozeUnits;
-});
+    return beers + student.numberOfBoozeUnits;
+}, 0);
 
-console.log('On average, each student owns ' + averageBeers + ' Beers');
+console.log('On average, each student owns ' + (averageBeers/students.length) + ' Beers');
