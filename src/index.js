@@ -33,8 +33,8 @@ const studentB = new Student('Anonymous', 0);
 function comapringTwoInstances(first, second) {
   const isFirstInstanceOfclass = first instanceof Student;
   const isSecondInstanceOfclass = second instanceof Student;
-  const nameEquality = studentA.fullName === studentB.fullName; 
-  const BoozeEquality = studentA.numberOfBoozeUnits === studentB.numberOfBoozeUnits;
+  const nameEquality = first.fullName === second.fullName; 
+  const BoozeEquality = first.numberOfBoozeUnits === second.numberOfBoozeUnits;
   return isFirstInstanceOfclass && isSecondInstanceOfclass && nameEquality && BoozeEquality
 }
 console.log(comapringTwoInstances(studentA, studentB));
