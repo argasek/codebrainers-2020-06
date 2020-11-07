@@ -10,10 +10,20 @@ class Engine {
         this.isRunning = false;
     }
 }
+
+
+class CarEngine extends Engine {
+    constructor() {
+        super();
+        this.type = "diesel";
+    }
+}
+
+
 class AirplaneEngine extends Engine {
     constructor(){
         super();
-        this.type = "airplaneEngine";
+        this.type = "turbojet";
     }
 }
 
@@ -28,3 +38,16 @@ class Vehicle {
     }
 
 }
+
+
+class Car extends Vehicle {
+  constructor() {
+    super();
+    const carEngine = new CarEngine();
+    this.addEngine(carEngine);
+  }
+}
+
+const car = new Car();
+
+console.log(car);
