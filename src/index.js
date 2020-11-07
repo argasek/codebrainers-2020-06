@@ -14,7 +14,10 @@ class Student {
   }
 
   equals(student) {
-    return false;
+    const fullNameEqual = this.fullName === student.fullName;
+    const boozeEqual = this.numberOfBoozeUnits === student.numberOfBoozeUnits;
+    const frequencyEqual = this.frequency === student.frequency;
+    return fullNameEqual && boozeEqual && frequencyEqual;
   }
 }
 
