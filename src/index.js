@@ -1,12 +1,14 @@
 class Engine {
-    constructor (){
+    constructor() {
         this.isRunning = false;
         this.type = undefined;
     }
-    turnOn (){
+
+    turnOn() {
         this.isRunning = true;
     }
-    turnOff (){
+
+    turnOff() {
         this.isRunning = false;
     }
 }
@@ -21,7 +23,7 @@ class CarEngine extends Engine {
 
 
 class AirplaneEngine extends Engine {
-    constructor(){
+    constructor() {
         super();
         this.type = "turbojet";
     }
@@ -29,25 +31,40 @@ class AirplaneEngine extends Engine {
 
 
 class Vehicle {
-    constructor(){
+    constructor() {
         this.engines = [];
+    }
 
-}
-    addEngine (engine) {
+    addEngine(engine) {
         this.engines.push(engine);
     }
 
 }
 
-
 class Car extends Vehicle {
-  constructor() {
-    super();
-    const carEngine = new CarEngine();
-    this.addEngine(carEngine);
-  }
+    constructor() {
+        super();
+        const carEngine = new CarEngine();
+        this.addEngine(carEngine);
+    }
+}
+
+class Airplane extends Vehicle {
+    constructor() {
+        super();
+        for (let i = 0; i < 4; i++) {
+            const airplaneEngine = new AirplaneEngine();
+            this.addEngine(airplaneEngine);
+        }
+    }
+    startEngine(index) {
+        const engine = this.engines[index];
+        engine.turnOn();
+    }
 }
 
 const car = new Car();
-
+const airplane = new Airplane();
+airplane.startEngine(1);
 console.log(car);
+console.log(airplane);
