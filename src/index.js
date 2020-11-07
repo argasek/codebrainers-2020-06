@@ -45,11 +45,8 @@ class Vehicle {
 
     areAllEnginesRunning() {
       return this.engines.reduce((accumulator, value, index) => {
-        console.log('index: ', index)
-        console.log(accumulator);
-        console.log(value);
         return value.isRunning && accumulator;
-      },true) 
+      }, true);
     }
 
 }
@@ -79,8 +76,6 @@ class Airplane extends Vehicle {
 const car = new Car();
 const airplane = new Airplane();
 airplane.startEngine(0);
-airplane.startEngine(1);
-airplane.startEngine(2);
 airplane.startEngine(3);
 // console.log(car);
 const result = airplane.areAllEnginesRunning();
