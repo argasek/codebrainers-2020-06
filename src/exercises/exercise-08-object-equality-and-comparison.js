@@ -100,3 +100,28 @@ console.log(`Students a and b are${result ? ' ' : ' not '}equal`);
 // });
 //
 // console.log('On average, each student owns ' + averageBeers + ' Beers');
+
+class CheeseCake {
+  constructor(name, additionalIngredients = []) {
+    this.name = '';
+    this.ingredients = ['sugar', 'flour', 'water'];
+    this.ingredients = this.ingredients.concat(additionalIngredients);
+    this.isSweet = true;
+  }
+
+  equalsSweetness(pie) {
+    return pie.isSweet === this.isSweet;
+  }
+
+  areIngredientsEqual(pie) {
+    return this.ingredients.length === pie.ingredients.length;
+  }
+
+}
+
+const sernik = new CheeseCake('sernik');
+const szalonySernikPodkarpacki = new CheeseCake('sernik', ['zimniok', 'błoto']);
+
+
+console.log(sernik);
+console.log(szalonySernikPodkarpacki);
