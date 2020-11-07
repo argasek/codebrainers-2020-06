@@ -12,10 +12,11 @@
                 console.log("Example of " + this.name);
             },
             applySquares: function () {
-                this.items.forEach(function (item){
+                const doSth = (item) => {
                     console.log(item);
                     console.log(this.name);
-                }, this)
+                };
+                this.items.forEach(doSth)
             }
         };
     })();
