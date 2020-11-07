@@ -1,3 +1,6 @@
+// Reduce:
+// Takes some array and REDUCES it to just _one_ value based on elements in the array
+
 function unique(values) {
   return values.reduce(function (accumulator, value) {
     if (accumulator.indexOf(value) === -1) {
@@ -33,7 +36,7 @@ const result = [ 13, 7, 4, 5, 16 ].reduce(sumAllNumbersInArray, -500);
 
 console.log(result);
 
-const sumAllNumbersInArray = (accumulator, value) => {
+const sumAllNumbersInArray = (accumulator, value, index, arr) => {
   console.log(`Previous: ${accumulator}, value: ${value}`);
   return accumulator + value;
 };
