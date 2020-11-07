@@ -1,29 +1,27 @@
+class Car {
+  constructor() {
+    this.brand = 'Fiat Multipla';
+    this.numberOfWheels = 4;
+  }
+}
+
 class Student {
   constructor(fullName, numberOfBoozeUnits = 0) {
     this.fullName = fullName;
     this.numberOfBoozeUnits = numberOfBoozeUnits;
+    this.frequency = 0;
+    this.car = new Car();
   }
 
+  equals(student) {
+    return false;
+  }
 }
 
-const students = [
-  new Student('Alicja', 30),
-  new Student('Grzegorz', 5),
-  new Student('Rafał', 1),
-  new Student('Szymon H.', 60),
-  new Student('Szymon T.', 60),
-];
 
-// Print names of all students and their number of beers
-// Calculate average number of beers possessed by any student.
 
-students.forEach(function(student) {
-  console.log(student.fullName, student.numberOfBoozeUnits);
-});
+const a = new Student('Jasiek', 1);
+const b = new Student('Jasiek', 1);
 
-const averageBeers = students.reduce(function(beers, student) {
-  console.log()
-  return beers.numberOfBoozeUnits + student.numberOfBoozeUnits;
-});
+console.log(a.equals(b));
 
-console.log('On average, each student owns ' + averageBeers + ' Beers');
