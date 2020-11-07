@@ -22,3 +22,22 @@ function uniqueViaSort(values) {
     return accumulator;
   }, []);
 }
+
+
+const sumAllNumbersInArrayWithInitialValue = (accumulator, value) => {
+  console.log(`Previous: ${accumulator}, value: ${value}`);
+  return accumulator + value;
+};
+
+const result = [ 13, 7, 4, 5, 16 ].reduce(sumAllNumbersInArray, -500);
+
+console.log(result);
+
+const sumAllNumbersInArray = (accumulator, value) => {
+  console.log(`Previous: ${accumulator}, value: ${value}`);
+  return accumulator + value;
+};
+
+const result2 = [ 13, 7, 4, 5, 16 ].reduce(sumAllNumbersInArray);
+
+console.log(result2);
