@@ -38,10 +38,9 @@ class Vehicle {
     addEngine(engine) {
         this.engines.push(engine);
     }
+
     startAllEngines(){
-        this.engines.forEach(function(engine){
-            engine.turnOn();
-        })
+        this.engines.forEach(engine => engine.turnOn())
     }
 
 }
