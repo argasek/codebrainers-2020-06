@@ -3,6 +3,12 @@ class Engine {
         this.isRunning = false;
         this.isStopped = true;
         this.type = undefined;
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 41) + 20;
+        };
+
+        this.noiseLevel = getRandomNumber();
     }
 
     turnOn() {
@@ -83,6 +89,20 @@ class Vehicle {
         return workingEngineFilter.length == 4;
       }
 
+    isNoiseLevelExceeded(maximumNoiseLevel) {
+        const arr = [];
+        this.engines.reduce((accumulator, value, index) => {
+            if (value.isRunning === true) {
+                arr.push(value.noiseLevel);
+            }
+            return value.isRunning || accumulator;
+          }, false);
+        let sum = arr.reduce((a, b) => {
+            return a + b;
+        }, 0);   
+        return sum > maximumNoiseLevel;
+    }
+
 }
 
 class Car extends Vehicle {
@@ -116,7 +136,7 @@ const car = new Car();
 const airplane = new Airplane();
 airplane.startEngine(0);
 airplane.startEngine(1);
-airplane.startEngine(2);
+// airplane.startEngine(2);
 airplane.startEngine(3);
 // airplane.stopEngine(2);
 // console.log(car);
@@ -133,5 +153,9 @@ airplane.startEngine(3);
 // const result = airplane.areAtLeastThisMuchEnginesRunning(2);
 // console.log(`Are at least this much engines running? `, result);
 
-const result = airplane.areAllEnginesRunningNew();
-console.log("Are all engines running? ", result);
+// const result = airplane.areAllEnginesRunningNew();
+// console.log("Are all engines running? ", result);
+
+const result = airplane.isNoiseLevelExceeded(90);
+console.log("Is noice level exceeded? ", result);
+
