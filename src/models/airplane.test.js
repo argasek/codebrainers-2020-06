@@ -54,15 +54,15 @@ test('should confirm that at least 2 engines are running when all were started',
 
 });
 
-test('should deny that at least 2 engines are running when all were started, then 3 stopped', () => {
+test('should confirm that stopping 3 engines preserves other engines as running', () => {
   const airplane = new Airplane();
-  const expectedEnginesCount = 2;
-
+  const allEnginesCount = airplane.getEnginesCount();
+  const stoppedEnginesCount = allEnginesCount - airplane.getRunningEnginesCount();
   airplane.startAllEngines();
   airplane.stopEngine(0);
   airplane.stopEngine(2);
   airplane.stopEngine(3);
-  expect(airplane.areAtLeastThisMuchEnginesRunning(expectedEnginesCount)).toBe(false);
+  expect(airplane.areAtLeastThisMuchEnginesRunning(allEnginesCount - stoppedEnginesCount)).toBe(true);
 
 });
 
