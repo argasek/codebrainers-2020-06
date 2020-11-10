@@ -76,6 +76,13 @@ class Vehicle {
         return count <= arr.length;
     }
 
+    areAllEnginesRunningNew() {
+        let workingEngineFilter = this.engines.filter(function(engine) {
+            return engine.isRunning == true;
+           });
+        return workingEngineFilter.length == 4;
+      }
+
 }
 
 class Car extends Vehicle {
@@ -107,9 +114,9 @@ class Airplane extends Vehicle {
 
 const car = new Car();
 const airplane = new Airplane();
-// airplane.startEngine(0);
+airplane.startEngine(0);
 airplane.startEngine(1);
-// airplane.startEngine(2);
+airplane.startEngine(2);
 airplane.startEngine(3);
 // airplane.stopEngine(2);
 // console.log(car);
@@ -123,5 +130,8 @@ airplane.startEngine(3);
 // const result = airplane.isAnyEngineRunning();
 // console.log("Is any engine running? ", result);
 
-const result = airplane.areAtLeastThisMuchEnginesRunning(2);
-console.log(`Are at least this much engines running? `, result);
+// const result = airplane.areAtLeastThisMuchEnginesRunning(2);
+// console.log(`Are at least this much engines running? `, result);
+
+const result = airplane.areAllEnginesRunningNew();
+console.log("Are all engines running? ", result);
