@@ -65,3 +65,10 @@ test('should deny that at least 2 engines are running when all were started, the
   expect(airplane.areAtLeastThisMuchEnginesRunning(expectedEnginesCount)).toBe(false);
 
 });
+
+test('should confirm that all engines are running', () => {
+  const airplane = new Airplane();
+  
+  airplane.startAllEngines();
+  expect(airplane.areAllEnginesRunningNew()).toBe(true);
+}) 

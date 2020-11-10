@@ -41,11 +41,12 @@ export default class Vehicle {
     return count <= arr.length;
   }
 
+  getRunningEnginesCount() {
+    return this.engines.filter(engine => engine.isRunning).length;
+  }
+
   areAllEnginesRunningNew() {
-    let workingEngineFilter = this.engines.filter(function(engine) {
-      return engine.isRunning == true;
-    });
-    return workingEngineFilter.length == 4;
+    return this.getRunningEnginesCount() === this.getEnginesCount();
   }
 
   isNoiseLevelExceeded(maximumNoiseLevel) {
@@ -63,4 +64,19 @@ export default class Vehicle {
     return sum > maximumNoiseLevel;
   }
 
+  startEngine(index) {
+    const engine = this.engines[index];
+    engine.turnOn();
+    // console.log(`Started engine ${index}`);
+  }
+
+  stopEngine(index) {
+    const engine = this.engines[index];
+    engine.turnOff();
+    // console.log(`Stopped engine ${index}`);
+  }
+
+  getEnginesCount() {
+    return this.engines.length;
+  } 
 }
