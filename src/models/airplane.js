@@ -4,7 +4,7 @@ import AirplaneEngine from './engine/airplaneEngine';
 export default class Airplane extends Vehicle {
   constructor() {
     super();
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       const airplaneEngine = new AirplaneEngine();
       this.addEngine(airplaneEngine);
     }

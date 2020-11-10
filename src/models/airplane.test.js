@@ -1,4 +1,10 @@
-import Airplane from './models/airplane';
+import Airplane from './airplane';
+test('should not have any engines running when no engines were started', () =>{
+    const airplane = new Airplane();
+    const isAnyEngineRunning = airplane.isAnyEngineRunning();
+    expect(isAnyEngineRunning).toBe(false);
+});
+
 
 test('should have some engines running when started 1 engine', () => {
   const airplane = new Airplane();
