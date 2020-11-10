@@ -48,6 +48,11 @@ class Vehicle {
         return value.isRunning && accumulator;
       }, true);
     }
+    areAllEnginesStopped() {
+        return this.engines.reduce((accumulutaor, value, index) =>{
+            return !value.isRunning && accumulutaor
+        }, true)
+    }
 
 }
 
@@ -71,13 +76,29 @@ class Airplane extends Vehicle {
         const engine = this.engines[index];
         engine.turnOn();
     }
+    stopEngine(index) {
+        const engine = this.engines[index];
+        engine.turnOff();
+    }
 }
 
-const car = new Car();
+// const car = new Car();
 const airplane = new Airplane();
+// airplane.startEngine(0);
+// airplane.startEngine(3);
+// // console.log(car);
 airplane.startEngine(0);
+airplane.startEngine(1);
+airplane.startEngine(2);
 airplane.startEngine(3);
-// console.log(car);
-const result = airplane.areAllEnginesRunning();
-console.log("Are all engines running? ", result);
 
+const resultRunning = airplane.areAllEnginesRunning();
+console.log("Are all engines running? ", resultRunning);
+airplane.stopEngine(0);
+let resultStopped = airplane.areAllEnginesStopped();
+console.log("Are all engines stopped? (Only one stopped)",resultStopped);
+airplane.stopEngine(1);
+airplane.stopEngine(2);
+airplane.stopEngine(3);
+resultStopped = airplane.areAllEnginesStopped();
+console.log("Are all engines stopped? (Allstopped)",resultStopped);
