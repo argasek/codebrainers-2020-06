@@ -1,4 +1,4 @@
-import { Airplane } from './index';
+import Airplane from './models/airplane';
 
 test('should have some engines running when started 1 engine', () => {
   const airplane = new Airplane();
