@@ -4,11 +4,12 @@ class Engine {
         this.isStopped = true;
         this.type = undefined;
 
-        function getRandomNumber() {
+        function getRandomNoiseLevel() {
             return Math.floor(Math.random() * 41) + 20;
-        };
+        }
 
-        this.noiseLevel = getRandomNumber();
+        this.noiseLevel = getRandomNoiseLevel();
+        console.log('Building engine with noise level of ' + this.noiseLevel + ' dB');
     }
 
     turnOn() {
@@ -99,7 +100,8 @@ class Vehicle {
           }, false);
         let sum = arr.reduce((a, b) => {
             return a + b;
-        }, 0);   
+        }, 0);
+        console.log('Total noise level: ', sum);
         return sum > maximumNoiseLevel;
     }
 
@@ -124,38 +126,85 @@ class Airplane extends Vehicle {
     startEngine(index) {
         const engine = this.engines[index];
         engine.turnOn();
+        console.log(`Started engine ${index}`);
     }
     stopEngine(index) {
         const engine = this.engines[index];
         engine.turnOff();
-
+        console.log(`Stopped engine ${index}`);
     }
 }
 
-const car = new Car();
-const airplane = new Airplane();
+
+let airplane;
+
+airplane = new Airplane();
+
+console.log('----------------');
+
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
+
 airplane.startEngine(0);
 airplane.startEngine(1);
-// airplane.startEngine(2);
 airplane.startEngine(3);
-// airplane.stopEngine(2);
-// console.log(car);
 
-// const result = airplane.areAllEnginesRunning();
-// console.log("Are all engines running? ", result);
+console.log("Are all engines running?", airplane.areAllEnginesRunning());
+console.log("Are all engines running? (filter)", airplane.areAllEnginesRunningNew());
+console.log("Are all engines stopped?", airplane.areAllEnginesStopped());
+console.log("Is any engine running? ", airplane.isAnyEngineRunning());
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
 
-// const result = airplane.areAllEnginesStopped();
-// console.log("Are all engines stopped? ", result);
+console.log('----------------');
+airplane.startEngine(2);
 
-// const result = airplane.isAnyEngineRunning();
-// console.log("Is any engine running? ", result);
+console.log("Are all engines running?", airplane.areAllEnginesRunning());
+console.log("Are all engines running? (filter)", airplane.areAllEnginesRunningNew());
+console.log("Are all engines stopped?", airplane.areAllEnginesStopped());
+console.log("Is any engine running? ", airplane.isAnyEngineRunning());
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
 
-// const result = airplane.areAtLeastThisMuchEnginesRunning(2);
-// console.log(`Are at least this much engines running? `, result);
+console.log('----------------');
+airplane.stopEngine(2);
+airplane.stopEngine(1);
+airplane.stopEngine(0);
+airplane.stopEngine(3);
 
-// const result = airplane.areAllEnginesRunningNew();
-// console.log("Are all engines running? ", result);
+console.log("Are all engines running?", airplane.areAllEnginesRunning());
+console.log("Are all engines running? (filter)", airplane.areAllEnginesRunningNew());
+console.log("Are all engines stopped?", airplane.areAllEnginesStopped());
+console.log("Is any engine running? ", airplane.isAnyEngineRunning());
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
 
-const result = airplane.isNoiseLevelExceeded(90);
-console.log("Is noice level exceeded? ", result);
+
+
+let expectedEnginesCount;
+
+console.log('---------------- Creating new Airplane()...');
+
+airplane = new Airplane();
+expectedEnginesCount = 2;
+
+
+airplane.startEngine(3);
+console.log(`Are at least this much (${expectedEnginesCount} engines running? `,
+  airplane.areAtLeastThisMuchEnginesRunning(expectedEnginesCount)
+);
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
+
+console.log('----------------');
+
+airplane.startEngine(1);
+console.log(`Are at least this much (${expectedEnginesCount} engines running? `,
+  airplane.areAtLeastThisMuchEnginesRunning(expectedEnginesCount)
+);
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
+
+airplane.startEngine(0);
+console.log(`Are at least this much (${expectedEnginesCount} engines running? `,
+  airplane.areAtLeastThisMuchEnginesRunning(expectedEnginesCount)
+);
+console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
+
+
+
 
