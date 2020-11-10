@@ -1,6 +1,59 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-10
+
+#### Task 1.
+
+Implement a test that checks if the aircraft technician didn't
+make a mistake by installing a car engine instead of aircraft
+one.
+
+```
+this.engines[
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new CarEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+]
+```
+ 
+#### Task 2.
+
+Modify `Engine` class so that noise level of a particular engine
+can be set at any other later time.
+
+#### Task 3.
+
+Modify `Engine` class in such way that it doesn't require
+`this.isStopped` field and relies solely upon `this.isRunning`.
+Take care of any other changes required.
+
+Hint: don't forget to run unit tests in order to verify everything
+works correctly. 
+
+#### Task 4.
+
+Optimize `Vehicle` class methods:
+* `isAnyEngineRunning()` in such way that it does not use reduce
+* `areAtLeastThisMuchEnginesRunning` that it relies on `filter` and/or `reduce`
+* `isNoiseLevelExceeded` that it relies on `filter` AND `reduce` and
+does not rely upon any additional temporary arrays created as local
+variables.
+
+#### Task 5.*
+
+Implement as much tests for the `Car` class methods as you can
+think of. Before you start writing the tests, think *twice*,
+i.e. ask yourself if (for example!) current project structure
+and structure of the tests is all-right for this task.
+
+Hint: maybe some tests should be common?
+
 
 ### Homework 2020-11-07
 
