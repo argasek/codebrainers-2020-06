@@ -2,6 +2,7 @@ class Engine {
     constructor() {
         this.isRunning = false;
         this.type = undefined;
+        this.noiseLevel = Math.floor(Math.random() * (61 - 20) + 20);
     }
 
     turnOn() {
@@ -66,6 +67,16 @@ class Vehicle {
             }
         }, 0) >= count
     }
+    isNoiseLevelExeeded(maximunNoiseLevel){
+        return this.engines.reduce((accumulutaor, value) =>{
+            if (value.isRunning === true){
+                return accumulutaor + value.noiseLevel
+            }
+            else {
+                return accumulutaor
+            }
+        }, 0) > maximunNoiseLevel
+    }
 }
 
 class Car extends Vehicle {
@@ -96,26 +107,29 @@ class Airplane extends Vehicle {
 
 // const car = new Car();
 const airplane = new Airplane();
-// console.log(`Are at least 3 engine runing? (none is on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
-// console.log(`Is any engine running? None is turn on - ${airplane.isAnyEngineRunning()}`)
 airplane.startEngine(0);
 airplane.startEngine(3);
+console.log(airplane.isNoiseLevelExeeded(220))
+// console.log(`Are at least 3 engine runing? (none is on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
+// console.log(`Is any engine running? None is turn on - ${airplane.isAnyEngineRunning()}`)
+// airplane.startEngine(0);
+// airplane.startEngine(3);
 // console.log(`Are at least 3 engine runing? (Two are on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
 // // // console.log(car);
 // airplane.startEngine(0);
 // console.log(`Is any engine running? One is turn on - ${airplane.isAnyEngineRunning()}`)
-airplane.startEngine(1);
+// airplane.startEngine(1);
 // console.log(`Are at least 3 engine runing? (Three are on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
-airplane.startEngine(2);
+// airplane.startEngine(2);
 // console.log(`Are at least 3 engine runing? (Four are on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
 // airplane.startEngine(3);
 // console.log(`Is any engine running? All are turn on - ${airplane.isAnyEngineRunning()}`)
 
-let resultRunning = airplane.areAllEnginesRunning();
-console.log("Are all engines running? (4 are running)", resultRunning);
-airplane.stopEngine(0);
-resultRunning = airplane.areAllEnginesRunning();
-console.log("Are all engines running? (3 are running) ", resultRunning);
+// let resultRunning = airplane.areAllEnginesRunning();
+// console.log("Are all engines running? (4 are running)", resultRunning);
+// airplane.stopEngine(0);
+// resultRunning = airplane.areAllEnginesRunning();
+// console.log("Are all engines running? (3 are running) ", resultRunning);
 // console.log(`Are at least 3 engine runing? (Three are on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
 // airplane.stopEngine(2);
 // console.log(`Are at least 3 engine runing? (Two are on) ${airplane.areAtLeastThisMuchEnginesRunning(3)}`);
