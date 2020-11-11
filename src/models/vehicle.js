@@ -84,4 +84,8 @@ export default class Vehicle {
     return this.engines.filter(engine => engine.type === "turbojet").length;
   }
 
+  changeEngineNoiseLevel(index, value) {
+    this.engines[index].noiseLevel = value;
+  }
+
 }

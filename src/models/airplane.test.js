@@ -81,3 +81,14 @@ test('should confirm that all engines are aircraft engines', () => {
 
   expect(notAircraftEngines === 0).toBe(true);
 })
+
+test('should confirm that aircraft engine noise level can be changed', () => {
+  const airplane = new Airplane();
+  const newNoiseLevelOfFirstEngine = 45;
+  const newNoiseLevelOfThirdEngine = 22;
+
+  airplane.changeEngineNoiseLevel(0, newNoiseLevelOfFirstEngine);
+  airplane.changeEngineNoiseLevel(2, newNoiseLevelOfThirdEngine);
+  expect((airplane.engines[0].noiseLevel === newNoiseLevelOfFirstEngine)).toBe(true);
+  expect((airplane.engines[2].noiseLevel === newNoiseLevelOfThirdEngine)).toBe(true);
+})
