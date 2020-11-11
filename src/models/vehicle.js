@@ -11,6 +11,10 @@ export default class Vehicle {
     this.engines.forEach(engine => engine.turnOn())
   }
 
+  stopAllEngines(){
+    this.engines.forEach(engine => engine.turnOff())
+  }
+
   areAllEnginesRunning() {
     return this.engines.reduce((accumulator, value, index) => {
       return value.isRunning && accumulator;
@@ -18,10 +22,13 @@ export default class Vehicle {
   }
 
   areAllEnginesStopped() {
-    return this.engines.reduce((accumulator, value, index) => {
-      return value.isStopped && accumulator;
-    }, true);
-
+    const runningEngines = [];
+    for(let i = 0; i < this.engines.length; i++) {
+      if (this.engines[i].isRunning === true) {
+        runningEngines.push(this.engines[i]);
+      } 
+    }
+    return runningEngines.length === 0;
   }
 
   isAnyEngineRunning() {

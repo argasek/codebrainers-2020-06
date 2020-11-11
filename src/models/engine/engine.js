@@ -1,7 +1,6 @@
 export default class Engine {
   constructor() {
     this.isRunning = false;
-    this.isStopped = true;
     this.type = undefined;
 
     function getRandomNoiseLevel() {
@@ -14,11 +13,9 @@ export default class Engine {
 
   turnOn() {
     this.isRunning = true;
-    this.isStopped = false;
   }
 
   turnOff() {
     this.isRunning = false;
-    this.isStopped = true;
   }
 }

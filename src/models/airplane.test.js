@@ -92,3 +92,19 @@ test('should confirm that aircraft engine noise level can be changed', () => {
   expect((airplane.engines[0].noiseLevel === newNoiseLevelOfFirstEngine)).toBe(true);
   expect((airplane.engines[2].noiseLevel === newNoiseLevelOfThirdEngine)).toBe(true);
 })
+
+test('should confirm that areAllEnginesStopped() method is working correctly', () => {
+  const airplane = new Airplane();
+  
+  airplane.startAllEngines();
+  expect(airplane.areAllEnginesStopped()).toBe(false);
+
+  airplane.stopAllEngines();
+  expect(airplane.areAllEnginesStopped()).toBe(true);
+
+  airplane.startEngine(5);
+  expect(airplane.areAllEnginesStopped()).toBe(false);
+
+  airplane.stopEngine(5);
+  expect(airplane.areAllEnginesStopped()).toBe(true);
+}) 
