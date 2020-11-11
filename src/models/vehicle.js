@@ -78,5 +78,10 @@ export default class Vehicle {
 
   getEnginesCount() {
     return this.engines.length;
-  } 
+  }
+  
+  ammountOfAirCraftEngines() {
+    return this.engines.filter(engine => engine.type === "turbojet").length;
+  }
+
 }

@@ -1,4 +1,5 @@
 import Airplane from './airplane';
+import AirplaneEngine from './engine/airplaneEngine';
 test('should not have any engines running when no engines were started', () =>{
     const airplane = new Airplane();
     const isAnyEngineRunning = airplane.isAnyEngineRunning();
@@ -72,3 +73,11 @@ test('should confirm that all engines are running', () => {
   airplane.startAllEngines();
   expect(airplane.areAllEnginesRunningNew()).toBe(true);
 }) 
+
+test('should confirm that all engines are aircraft engines', () => {
+  const airplane = new Airplane();
+  const allEnginesCount = airplane.getEnginesCount();
+  const notAircraftEngines = allEnginesCount - airplane.ammountOfAirCraftEngines();
+
+  expect(notAircraftEngines === 0).toBe(true);
+})
