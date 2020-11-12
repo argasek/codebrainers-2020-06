@@ -108,4 +108,9 @@ export default class Vehicle {
     this.engines[index].noiseLevel = value;
   }
 
+  // recommended for cars
+  isThisADieselEngine() {
+    return this.engines.filter(engine => engine.type === "diesel").length === 1;
+  }
+
 }

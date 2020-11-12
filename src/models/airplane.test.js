@@ -72,7 +72,7 @@ test('should confirm that all engines are running', () => {
   
   airplane.startAllEngines();
   expect(airplane.areAllEnginesRunningNew()).toBe(true);
-}) 
+}); 
 
 test('should confirm that all engines are aircraft engines', () => {
   const airplane = new Airplane();
@@ -80,7 +80,7 @@ test('should confirm that all engines are aircraft engines', () => {
   const notAircraftEngines = allEnginesCount - airplane.ammountOfAirCraftEngines();
 
   expect(notAircraftEngines === 0).toBe(true);
-})
+});
 
 test('should confirm that aircraft engine noise level can be changed', () => {
   const airplane = new Airplane();
@@ -91,7 +91,7 @@ test('should confirm that aircraft engine noise level can be changed', () => {
   airplane.changeEngineNoiseLevel(2, newNoiseLevelOfThirdEngine);
   expect((airplane.engines[0].noiseLevel === newNoiseLevelOfFirstEngine)).toBe(true);
   expect((airplane.engines[2].noiseLevel === newNoiseLevelOfThirdEngine)).toBe(true);
-})
+});
 
 test('should confirm that areAllEnginesStopped() method is working correctly', () => {
   const airplane = new Airplane();
@@ -107,7 +107,7 @@ test('should confirm that areAllEnginesStopped() method is working correctly', (
 
   airplane.stopEngine(5);
   expect(airplane.areAllEnginesStopped()).toBe(true);
-}) 
+}); 
 
 test('should confirm that isAnyEngineRunning() method is working correctly', () => {
   const airplane = new Airplane();
@@ -123,7 +123,7 @@ test('should confirm that isAnyEngineRunning() method is working correctly', () 
 
   airplane.stopEngine(5);
   expect(airplane.isAnyEngineRunning()).toBe(false);
-})
+});
 
 test('should confirm that areAtLeastThisMuchEnginesRunning(count) method is working correctly', () => {
   const airplane = new Airplane();
@@ -141,7 +141,7 @@ test('should confirm that areAtLeastThisMuchEnginesRunning(count) method is work
   airplane.startEngine(0);
   airplane.startEngine(1);
   expect(airplane.areAtLeastThisMuchEnginesRunning(threeEngines)).toBe(true);
-}) 
+});
 
 test('should confirm that isNoiseLevelExceeded(maximumNoiseLevel) method is working correctly', () => {
   const airplane = new Airplane();
@@ -158,4 +158,4 @@ test('should confirm that isNoiseLevelExceeded(maximumNoiseLevel) method is work
 
   airplane.changeEngineNoiseLevel(1, 20);
   expect(airplane.isNoiseLevelExceeded(100)).toBe(false);
-}) 
+}); 
