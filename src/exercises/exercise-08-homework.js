@@ -64,6 +64,17 @@ class Vehicle {
         }, false);
     }
 
+    areAtLeastThisMuchEnginesRunning(count) {
+        const arr = [];
+        this.engines.reduce((accumulator, value, index) => {
+            if (value.isRunning === true) {
+                arr.push(value.isRunning);
+            }
+            return value.isRunning || accumulator;
+        }, false);
+        return count <= arr.length;
+    }
+
 }
 
 class Car extends Vehicle {
