@@ -25,7 +25,7 @@ function uniqueViaSort(values) {
     return accumulator;
   }, []);
 }
-
+// ---------------------------------------------------------------------
 
 const sumAllNumbersInArrayWithInitialValue = (accumulator, value) => {
   console.log(`Previous: ${accumulator}, value: ${value}`);

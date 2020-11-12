@@ -14,8 +14,9 @@ class Student {
   }
 
   equals(student) {
-
+    return false;
   }
+
 }
 
 
@@ -25,15 +26,13 @@ const b = new Student('Jasiek', 1);
 
 a.equals(b);
 
-
-
 // const b = new Car();
-
+//
 // console.log(a === b);
-
-
+//
+//
 // b.fullName = 'Krystyna Czubówna';
-
+//
 // delete b.frequency;
 // b.someField = 'test';
 

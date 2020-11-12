@@ -1,4 +1,4 @@
-class Lock {
+ class Lock {
   constructor() {
     this.isLocked = false;
   }
