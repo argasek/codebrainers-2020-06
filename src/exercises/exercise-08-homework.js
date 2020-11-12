@@ -58,6 +58,12 @@ class Vehicle {
         }, true);
     }
 
+    isAnyEngineRunning() {
+        return this.engines.reduce((accumulator, value, index) => {
+            return value.isRunning || accumulator;
+        }, false);
+    }
+
 }
 
 class Car extends Vehicle {
