@@ -3,6 +3,12 @@
         this.isRunning = false;
         this.isStopped = true;
         this.type = undefined;
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 41) +20;
+        }
+
+        this.noiseLevel = getRandomNumber();
     }
 
     turnOn() {
@@ -77,6 +83,20 @@ class Vehicle {
     areAllEnginesRunningNow() {
         let workingEngineFilter = this.engines.filter(engine => engine.isRunning === true);
         return workingEngineFilter.length === 4;
+    }
+
+    isNoiseLevelExceeded(maximumNoiseLevel) {
+        const arr = [];
+        this.engines.reduce((accumulator, value, index) => {
+            if (value.isRunning === true) {
+                arr.push(value.noiseLevel);
+            }
+            return value.isRunning || accumulator;
+        }, false);
+        let sum = arr.reduce((a, b) => {
+            return a + b;
+        }, 0);
+        return sum > maximumNoiseLevel;
     }
 }
 
