@@ -32,20 +32,29 @@ export default class Vehicle {
   }
 
   isAnyEngineRunning() {
-    return this.engines.reduce((accumulator, value, index) => {
-      return value.isRunning || accumulator;
-    }, false);
+    // return this.engines.reduce((accumulator, value, index) => {
+    //   return value.isRunning || accumulator;
+    // }, false);
+    const runningEngines = [];
+    for(let i = 0; i < this.engines.length; i++) {
+      if (this.engines[i].isRunning === true) {
+        runningEngines.push(this.engines[i]);
+      } 
+    }
+    return runningEngines.length > 0;
   }
 
   areAtLeastThisMuchEnginesRunning(count) {
-    const arr = [];
-    this.engines.reduce((accumulator, value, index) => {
-      if (value.isRunning === true) {
-        arr.push(value.isRunning);
-      }
-      return value.isRunning || accumulator;
-    }, false);
-    return count <= arr.length;
+    // const arr = [];
+    // this.engines.reduce((accumulator, value, index) => {
+    //   if (value.isRunning === true) {
+    //     arr.push(value.isRunning);
+    //   }
+    //   return value.isRunning || accumulator;
+    // }, false);
+    // return count <= arr.length;
+    return this.engines.filter(engine => engine.isRunning).length >= count;
+
   }
 
   getRunningEnginesCount() {
@@ -57,17 +66,21 @@ export default class Vehicle {
   }
 
   isNoiseLevelExceeded(maximumNoiseLevel) {
-    const arr = [];
-    this.engines.reduce((accumulator, value, index) => {
-      if (value.isRunning === true) {
-        arr.push(value.noiseLevel);
-      }
-      return value.isRunning || accumulator;
-    }, false);
-    let sum = arr.reduce((a, b) => {
-      return a + b;
+    // const arr = [];
+    // this.engines.reduce((accumulator, value, index) => {
+    //   if (value.isRunning === true) {
+    //     arr.push(value.noiseLevel);
+    //   }
+    //   return value.isRunning || accumulator;
+    // }, false);
+    // let sum = arr.reduce((a, b) => {
+    //   return a + b;
+    // }, 0);
+    // // console.log('Total noise level: ', sum);
+    // return sum > maximumNoiseLevel;
+    let sum = this.engines.filter(engine => engine.isRunning).reduce((accumulator, value, index) => {
+      return value.noiseLevel + accumulator;
     }, 0);
-    // console.log('Total noise level: ', sum);
     return sum > maximumNoiseLevel;
   }
 
