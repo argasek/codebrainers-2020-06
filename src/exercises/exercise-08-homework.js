@@ -74,7 +74,10 @@ class Vehicle {
         }, false);
         return count <= arr.length;
     }
-
+    areAllEnginesRunningNow() {
+        let workingEngineFilter = this.engines.filter(engine => engine.isRunning === true);
+        return workingEngineFilter.length === 4;
+    }
 }
 
 class Car extends Vehicle {
