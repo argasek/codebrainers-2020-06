@@ -21,4 +21,7 @@ export default class Engine {
     this.isRunning = false;
     this.isStopped = true;
   }
+  setNoiseLevel(noiseLevel){
+    this.noiseLevel = noiseLevel
+  }
 }
