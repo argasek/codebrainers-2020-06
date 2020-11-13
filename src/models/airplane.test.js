@@ -80,8 +80,10 @@ test('should confirm that all engines are running', () => {
 test('should confirm that all of installed engines are aircraft engines ', () => {
   const airplane = new Airplane();
   const enginesArray = airplane.engines;
-  const enginesArray2 = enginesArray.map(el => el.type );
-  // console.log(enginesArray2);
-  expect(enginesArray2.includes('diesel')).toBe(false);
+  const enginesArray2 = enginesArray.map(el => el.type);
+  // enginesArray2.push("diesel");
+  const enginesArray3 = enginesArray2.filter(el => el === 'turbojet');
+
+  expect(enginesArray3.length === enginesArray2.length).toBe(true);
 });
 
