@@ -21,7 +21,7 @@ console.log("Is noise level exceeded? ", airplane.isNoiseLevelExceeded(90));
 console.log('----------------');
 airplane.startEngine(2);
 
-console.log("Are all engines running?", airplane.areAllEnginesRunning());
+// console.log("Are all engines running?", airplane.areAllEnginesRunning());
 console.log("Are all engines running? (filter)", airplane.areAllEnginesRunningNew());
 console.log("Are all engines stopped?", airplane.areAllEnginesStopped());
 console.log("Is any engine running? ", airplane.isAnyEngineRunning());

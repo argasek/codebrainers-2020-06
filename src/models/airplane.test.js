@@ -1,4 +1,5 @@
 import Airplane from './airplane';
+import AirplaneEngine from "./engine/airplaneEngine";
 test('should not have any engines running when no engines were started', () =>{
     const airplane = new Airplane();
     const isAnyEngineRunning = airplane.isAnyEngineRunning();
@@ -71,4 +72,16 @@ test('should confirm that all engines are running', () => {
   
   airplane.startAllEngines();
   expect(airplane.areAllEnginesRunningNew()).toBe(true);
-}) 
+});
+
+// TASK 1. Implement a test that checks if the aircraft technician didn't make a mistake by
+// installing a car engine instead of aircraft one.
+
+test('should confirm that all of installed engines are aircraft engines ', () => {
+  const airplane = new Airplane();
+  const enginesArray = airplane.engines;
+  const enginesArray2 = enginesArray.map(el => el.type );
+  // console.log(enginesArray2);
+  expect(enginesArray2.includes('diesel')).toBe(false);
+});
+
