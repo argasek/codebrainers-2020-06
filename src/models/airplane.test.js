@@ -74,7 +74,7 @@ test('should confirm that all engines are running', () => {
   expect(airplane.areAllEnginesRunningNew()).toBe(true);
 });
 
-// TASK 1. Implement a test that checks if the aircraft technician didn't make a mistake by
+// TASK 1 (10/NOV/20). Implement a test that checks if the aircraft technician didn't make a mistake by
 // installing a car engine instead of aircraft one.
 
 test('should confirm that all of installed engines are aircraft engines ', () => {
@@ -84,6 +84,33 @@ test('should confirm that all of installed engines are aircraft engines ', () =>
   // enginesArray2.push("diesel");
   const enginesArray3 = enginesArray2.filter(el => el === 'turbojet');
 
+  // console.log(enginesArray2);
   expect(enginesArray3.length === enginesArray2.length).toBe(true);
+
+});
+
+// TASK 2 (10/NOV/20). Modify Engine class so that noise level of
+// a particular engine can be set at any other later time.:
+
+test('should confirm that noise level for selected engines are set manually by user', () => {
+  const airplane = new Airplane();
+  airplane.startAllEngines();
+  const setEngineNoiseLevelValue = 99;
+  airplane.setEngineNoiseLevel(0, setEngineNoiseLevelValue);
+  airplane.setEngineNoiseLevel(1, setEngineNoiseLevelValue);
+
+  // console.log(airplane);
+  expect(airplane.engines[0].noiseLevel === setEngineNoiseLevelValue && airplane.engines[1].noiseLevel === setEngineNoiseLevelValue).toBe(true);
+});
+
+test('should confirm that noise level for all of engines are set manually by user', () => {
+  const airplane = new Airplane();
+  airplane.startAllEngines();
+  const setEngineNoiseLevelValue = 99;
+  airplane.setAllEnginesNoiseLevel(setEngineNoiseLevelValue);
+
+  // console.log(airplane);
+  // console.log(airplane.getEngineNoiseLevelValue());
+  expect(airplane.getEngineNoiseLevelValue() === setEngineNoiseLevelValue).toBe(true);
 });
 

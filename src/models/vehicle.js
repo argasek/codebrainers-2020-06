@@ -78,5 +78,22 @@ export default class Vehicle {
 
   getEnginesCount() {
     return this.engines.length;
-  } 
+  }
+
+  // set noise level for selected enignes or all
+  // and check the noise value for random engines:
+
+  setEngineNoiseLevel(index, value) {
+    return this.engines[index].noiseLevel = value;
+  }
+
+  setAllEnginesNoiseLevel(value) {
+    this.engines.forEach(engine => engine.noiseLevel = value);
+  }
+
+  getEngineNoiseLevelValue() {
+    const noiseLevelArray = this.engines.map(el => el.noiseLevel);
+    return noiseLevelArray[Math.floor(Math.random() * noiseLevelArray.length)];
+  }
+
 }

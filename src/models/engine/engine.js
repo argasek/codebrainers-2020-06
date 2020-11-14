@@ -3,18 +3,18 @@ export default class Engine {
     this.isRunning = false;
     this.isStopped = true;
     this.type = undefined;
-
-    function getRandomNoiseLevel() {
-      return Math.floor(Math.random() * 41) + 20;
-    }
-
-    this.noiseLevel = getRandomNoiseLevel();
+    this.noiseLevel = 0;
     // console.log('Building engine with noise level of ' + this.noiseLevel + ' dB');
+  }
+
+  getRandomNoiseLevel() {
+    return Math.floor(Math.random() * 41) + 20;
   }
 
   turnOn() {
     this.isRunning = true;
     this.isStopped = false;
+    this.noiseLevel = this.getRandomNoiseLevel();
   }
 
   turnOff() {
