@@ -25,33 +25,15 @@ export default class Vehicle {
 
   // question!!
   areAllEnginesStopped() {
-    return this.engines.reduce((accumulator, value, index) => {
-      return value.isRunning === false && accumulator;
-    }, true);
+    return this.engines.reduce((accumulator, value, index) => value.isRunning === false && accumulator, true);
   }
 
   isAnyEngineRunning() {
-    // return this.engines.reduce((accumulator, value, index) => {
-    //   return value.isRunning || accumulator;
-    // }, false);
-    // this.engines.filter(item => item.isRunning === true);
-    return this.engines.some(el => {
-      return el.isRunning === true;
-    })
+    return this.engines.some(el => el.isRunning === true);
   }
 
   areAtLeastThisMuchEnginesRunning(count) {
-    // const arr = [];
-    // this.engines.reduce((accumulator, value, index) => {
-    //   if (value.isRunning === true) {
-    //     arr.push(value.isRunning);
-    //   }
-    //   return value.isRunning || accumulator;
-    // }, false);
-    // return count <= arr.length;
-    return this.engines.filter(element => {
-      return element.isRunning === true;
-    }).length >= count;
+    return this.engines.filter(element => element.isRunning === true).length >= count;
   }
 
   getRunningEnginesCount() {
@@ -63,12 +45,7 @@ export default class Vehicle {
   }
 
   isNoiseLevelExceeded(maximumNoiseLevel) {
-    return this.engines.filter(item => {
-      return item.isRunning === true;
-    }).reduce((acc, value) => {
-      return value.noiseLevel + acc;
-    },0) > maximumNoiseLevel;
-
+    return this.engines.filter(item => item.isRunning === true).reduce((acc, value) => value.noiseLevel + acc,0) > maximumNoiseLevel;
   }
 
   startEngine(index) {

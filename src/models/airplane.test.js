@@ -1,12 +1,14 @@
 import Airplane from './airplane';
+import Car from "./car";
 import AirplaneEngine from "./engine/airplaneEngine";
 test('should not have any engines running when no engines were started', () =>{
     const airplane = new Airplane();
-    const isAnyEngineRunning = airplane.isAnyEngineRunning();
+    const car = new Car();
+    const isAnyAirplaneEngineRunning = airplane.isAnyEngineRunning();
+    const isAnyCarEngineRunning = car.isAnyEngineRunning();
     // console.log(isAnyEngineRunning);
-    expect(isAnyEngineRunning).toBe(false);
+    expect(isAnyAirplaneEngineRunning && isAnyCarEngineRunning).toBe(false);
 });
-
 
 test('should have some engines running when started 1 engine', () => {
   const airplane = new Airplane();
@@ -16,7 +18,6 @@ test('should have some engines running when started 1 engine', () => {
   // console.log(isAnyEngineRunning);
   expect(isAnyEngineRunning).toBe(true);
 });
-
 
 test('should deny that at least 2 engines are running when just 1 was started', () => {
   const airplane = new Airplane();
@@ -71,10 +72,11 @@ test('should confirm that stopping 3 engines preserves other engines as running'
 
 test('should confirm that all engines are running', () => {
   const airplane = new Airplane();
-  
+  const car = new Car();
+  car.startAllEngines();
   airplane.startAllEngines();
   // console.log(airplane);
-  expect(airplane.areAllEnginesRunningNew()).toBe(true);
+  expect(airplane.areAllEnginesRunningNew() && car.areAllEnginesRunning()).toBe(true);
 });
 
 // TASK 1 (10/NOV/20). Implement a test that checks if the aircraft technician didn't make a mistake by
@@ -92,6 +94,15 @@ test('should confirm that all of installed engines are aircraft engines ', () =>
 
 });
 
+test('should confirm that installed engine is car engine ', () => {
+  const car = new Car();
+  const enginesArray = car.engines;
+  const enginesArray2 = enginesArray.map(el => el.type);
+  const enginesArray3 = enginesArray2.filter(el => el === 'diesel');
+
+  expect(enginesArray3.length === enginesArray2.length).toBe(true);
+});
+
 // TASK 2 (10/NOV/20). Modify Engine class so that noise level of
 // a particular engine can be set at any other later time.:
 
@@ -104,6 +115,15 @@ test('should confirm that noise level for selected engines are set manually by u
 
   // console.log(airplane);
   expect(airplane.engines[0].noiseLevel === setEngineNoiseLevelValue && airplane.engines[1].noiseLevel === setEngineNoiseLevelValue).toBe(true);
+});
+
+test('should confirm that noise level for car engine is set manually by user', () => {
+  const car = new Car();
+  car.startAllEngines();
+  const setEngineNoiseLevelValue = 99;
+  car.setEngineNoiseLevel(0, setEngineNoiseLevelValue);
+
+  expect(car.engines[0].noiseLevel === setEngineNoiseLevelValue).toBe(true);
 });
 
 test('should confirm that noise level for all of engines are set manually by user', () => {
@@ -125,17 +145,24 @@ test('should confirm that noise level for all of engines are set manually by use
 
 test ('should confirm that all of engines are stopped', () => {
    const airplane = new Airplane();
+   const car = new Car();
+
+   car.startAllEngines();
+   car.stopAllEngines();
+
    airplane.startAllEngines();
    airplane.stopAllEngines();
-   // console.log(airplane);
-   expect(airplane.areAllEnginesStopped()).toBe(true);
+
+   expect(airplane.areAllEnginesStopped() && car.areAllEnginesStopped()).toBe(true);
 
 });
 
 test ('should deny that sum of noise level of all engines is exceeded', () => {
   const airplane = new Airplane();
+  const car = new Car();
   const maximumNoiseLevel = 1000;
   airplane.startAllEngines();
+  car.startAllEngines();
 
-  expect(airplane.isNoiseLevelExceeded(maximumNoiseLevel)).toBe(false);
+  expect(airplane.isNoiseLevelExceeded(maximumNoiseLevel) && car.isNoiseLevelExceeded(maximumNoiseLevel)).toBe(false);
 });
