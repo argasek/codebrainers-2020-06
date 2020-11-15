@@ -63,6 +63,7 @@ test('should confirm that stopping 3 engines preserves other engines as running'
   airplane.stopEngine(0);
   airplane.stopEngine(2);
   airplane.stopEngine(3);
+  // console.log(airplane);
   expect(airplane.areAtLeastThisMuchEnginesRunning(allEnginesCount - stoppedEnginesCount)).toBe(true);
 
 });
@@ -71,6 +72,7 @@ test('should confirm that all engines are running', () => {
   const airplane = new Airplane();
   
   airplane.startAllEngines();
+  // console.log(airplane);
   expect(airplane.areAllEnginesRunningNew()).toBe(true);
 });
 
@@ -114,3 +116,17 @@ test('should confirm that noise level for all of engines are set manually by use
   expect(airplane.getEngineNoiseLevelValue() === setEngineNoiseLevelValue).toBe(true);
 });
 
+// TASK 3 (10/NOV/20). Modify Engine class in such way that it doesn't
+// require this.isStopped field and relies solely upon this.isRunning.
+// Take care of any other changes required.
+// Hint: don't forget to run unit tests in order to
+// verify everything works correctly.
+
+test ('should confirm that all of engines are stopped', () => {
+   const airplane = new Airplane();
+   airplane.startAllEngines();
+   airplane.stopAllEngines();
+   // console.log(airplane);
+   expect(airplane.areAllEnginesStopped()).toBe(true);
+
+});
