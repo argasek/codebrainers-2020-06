@@ -1,3 +1,5 @@
+import AirplaneEngine from "./engine/airplaneEngine";
+
 export default class Vehicle {
   constructor() {
     this.engines = [];
@@ -29,20 +31,27 @@ export default class Vehicle {
   }
 
   isAnyEngineRunning() {
-    return this.engines.reduce((accumulator, value, index) => {
-      return value.isRunning || accumulator;
-    }, false);
+    // return this.engines.reduce((accumulator, value, index) => {
+    //   return value.isRunning || accumulator;
+    // }, false);
+    // this.engines.filter(item => item.isRunning === true);
+    return this.engines.some(el => {
+      return el.isRunning === true;
+    })
   }
 
   areAtLeastThisMuchEnginesRunning(count) {
-    const arr = [];
-    this.engines.reduce((accumulator, value, index) => {
-      if (value.isRunning === true) {
-        arr.push(value.isRunning);
-      }
-      return value.isRunning || accumulator;
-    }, false);
-    return count <= arr.length;
+    // const arr = [];
+    // this.engines.reduce((accumulator, value, index) => {
+    //   if (value.isRunning === true) {
+    //     arr.push(value.isRunning);
+    //   }
+    //   return value.isRunning || accumulator;
+    // }, false);
+    // return count <= arr.length;
+    return this.engines.filter(element => {
+      return element.isRunning === true;
+    }).length >= count;
   }
 
   getRunningEnginesCount() {
@@ -54,18 +63,12 @@ export default class Vehicle {
   }
 
   isNoiseLevelExceeded(maximumNoiseLevel) {
-    const arr = [];
-    this.engines.reduce((accumulator, value, index) => {
-      if (value.isRunning === true) {
-        arr.push(value.noiseLevel);
-      }
-      return value.isRunning || accumulator;
-    }, false);
-    let sum = arr.reduce((a, b) => {
-      return a + b;
-    }, 0);
-    // console.log('Total noise level: ', sum);
-    return sum > maximumNoiseLevel;
+    return this.engines.filter(item => {
+      return item.isRunning === true;
+    }).reduce((acc, value) => {
+      return value.noiseLevel + acc;
+    },0) > maximumNoiseLevel;
+
   }
 
   startEngine(index) {

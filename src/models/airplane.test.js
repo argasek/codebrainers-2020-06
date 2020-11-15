@@ -3,16 +3,17 @@ import AirplaneEngine from "./engine/airplaneEngine";
 test('should not have any engines running when no engines were started', () =>{
     const airplane = new Airplane();
     const isAnyEngineRunning = airplane.isAnyEngineRunning();
+    // console.log(isAnyEngineRunning);
     expect(isAnyEngineRunning).toBe(false);
 });
 
 
 test('should have some engines running when started 1 engine', () => {
   const airplane = new Airplane();
-  airplane.startEngine(0);
+  airplane.startEngine(1);
 
   const isAnyEngineRunning = airplane.isAnyEngineRunning();
-
+  // console.log(isAnyEngineRunning);
   expect(isAnyEngineRunning).toBe(true);
 });
 
@@ -129,4 +130,12 @@ test ('should confirm that all of engines are stopped', () => {
    // console.log(airplane);
    expect(airplane.areAllEnginesStopped()).toBe(true);
 
+});
+
+test ('should deny that sum of noise level of all engines is exceeded', () => {
+  const airplane = new Airplane();
+  const maximumNoiseLevel = 1000;
+  airplane.startAllEngines();
+
+  expect(airplane.isNoiseLevelExceeded(maximumNoiseLevel)).toBe(false);
 });
