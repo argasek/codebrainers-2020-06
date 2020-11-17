@@ -1,68 +1,264 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Codebrainers 2020-06
 
-In the project directory, you can run:
+### Homework 2020-11-10
 
-### `yarn start`
+#### Task 1.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Implement a test that checks if the aircraft technician didn't
+make a mistake by installing a car engine instead of aircraft
+one.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+this.engines[
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new CarEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+    new AircraftEngine(),
+]
+```
+ 
+#### Task 2.
 
-### `yarn test`
+Modify `Engine` class so that noise level of a particular engine
+can be set at any other later time.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Task 3.
 
-### `yarn build`
+Modify `Engine` class in such way that it doesn't require
+`this.isStopped` field and relies solely upon `this.isRunning`.
+Take care of any other changes required.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Hint: don't forget to run unit tests in order to verify everything
+works correctly. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Task 4.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Optimize `Vehicle` class methods:
+* `isAnyEngineRunning()` in such way that it does not use reduce
+* `areAtLeastThisMuchEnginesRunning` that it relies on `filter` and/or `reduce`
+* `isNoiseLevelExceeded` that it relies on `filter` AND `reduce` and
+does not rely upon any additional temporary arrays created as local
+variables.
 
-### `yarn eject`
+#### Task 5.*
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Implement as much tests for the `Car` class methods as you can
+think of. Before you start writing the tests, think *twice*,
+i.e. ask yourself if (for example!) current project structure
+and structure of the tests is all-right for this task.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Hint: maybe some tests should be common?
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Homework 2020-11-07
 
-## Learn More
+#### Task 1.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Implement `areAllEnginesStopped()` method of `Vehicle` class.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+const airplane = new Airplane();
+airplane.startEngine(0);
+airplane.startEngine(1);
+airplane.startEngine(2);
+airplane.startEngine(3);
 
-### Code Splitting
+airplane.stopEngine(1);
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+// areAllEnginesStopped() -> false
 
-### Analyzing the Bundle Size
+airplane.stopEngine(0);
+airplane.stopEngine(2);
+airplane.stopEngine(3);
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+// areAllEnginesStopped() -> true
 
-### Making a Progressive Web App
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+#### Task 2.
+Implement `isAnyEngineRunning()` method of `Vehicle` class.
 
-### Advanced Configuration
+```
+const airplane = new Airplane();
+// isAnyEngineRunning() -> false
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+airplane.startEngine(2);
 
-### Deployment
+// isAnyEngineRunning() -> true
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
 
-### `yarn build` fails to minify
+#### Task 3.
+Implement `areAtLeastThisMuchEnginesRunning(count)` method of `Vehicle` class.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+const airplane = new Airplane();
+
+airplane.startEngine(2);
+airplane.startEngine(3);
+
+// areAtLeastThisMuchEnginesRunning(2) -> true
+// areAtLeastThisMuchEnginesRunning(3) -> false
+
+```
+
+#### Task 4.
+Modify `areAllEnginesRunning()` method so it does not use `reduce()` but
+it also doesn't use any loops (like `for`, `while`, etc.).
+
+
+#### Task 5.*
+
+Modify vehicle engine in such way that each engine produces
+some level of noise (70db level of noise, 36 db). Level of noise
+is a hit or miss, i.e. factory produces engines which have
+better or worse parameters. What does it mean?
+
+It means engines should have level of noise assigned randomly
+during engine assembly ;-) to a value between (20-60) dB.
+
+Implement method `isNoiseLevelExceeded(maximumNoiseLevel)` which
+checks if total noise produced by all running (!!!!) engines
+is greater than `maximumNoiseLevel`
+
+Example: engines produce these much levels of noise:
+```
+0: 20
+1: 45
+2: 23
+3: 60
+
+airplane.startEngine(2);
+airplane.startEngine(3);
+
+totalNoiseLevel = 45 + 23;
+```
+
+```
+isNoiseLevelExceeded(90) -> false // 45 + 23 < 90
+```
+
+
+
+
+
+### Homework 2020-11-05
+
+#### Task 1.
+
+Fix code in `index.js`, so it works correctly (i.e.)
+`averageBeers` returns numbers of beers per student on
+average. Right now it returns `NaN` for some reason ;-)
+
+Hint: use `console.log()` in order to figure out what's
+going on wrong with the code (for example, by displaying
+values of `.reduce()` anonymous function parameters).
+
+#### Task 2.
+
+Create to objects like this:
+```
+const studentA = new Student('Anonymous', 0);
+const studentB = new Student('Anonymous', 0);
+```
+
+try to compare these objects:
+
+```
+console.log(stundentA === studentB);
+```
+
+Are they equal? If not, how could we determine if two
+objects are equal? Try to implement function (or even better,
+method!) which checks for equality of two `Student` objects.
+
+
+### Homework 2020-11-03
+
+#### Task 1.
+
+So, knowing that
+```
+0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 === 1.0
+```
+is `false`, find out what can you do in order to compare these two values and obtain `true` result.
+
+#### Task 2.
+
+
+
+### Homework 2020-10-29
+
+#### Task 1.
+Implement `intersection(arr1, arr2)` algorithm which uses two new function:
+`Array.includes() (see MDN)`
+`Array.filter() (see MDN)`
+
+Example of `.filter()` call:
+```
+[1,2,3,4,5,6,7].filter(function (item) { return !(item % 3); });
+[3, 6]
+```
+See Task 3 from Homework 2020-10-24.
+
+Assume no numbers repeat within arr1 or arr2 array and they consist of
+numbers only and there are no nested arrays.
+
+#### Task 2*.
+Verify if set of three numbers `[a, b, c]` (let's say, [15, 2, -3])
+could be used as coefficients of quadratic equation which has solutions
+in domain of real numbers.
+
+### Homework 2020-10-24
+
+Task 1.
+Implement algorithm which draws 6 numbers in range `[1..49]`
+and puts them in the array.
+
+Task 2.
+Modify the algorithm in such way that numbers drawn never repeat.
+So: if the first number drawn is, for example, `36`, then `36` cannot
+appear as any other of the 5 drawn numbers.
+
+Task 3*.
+Implement algorithm which compares two arrays filled with numbers,
+assuming they have equal number of elements (`.length`s), like these:
+```
+const a = [15, 22, 7, 49, 3, 2];
+const b = [15, 7, 22, 18, 38, 2];
+``` 
+so it returns number of the elements which are the same and appear in
+both arrays.
+
+
+### Homework 2020-10-22
+
+This is where all homework will be put.
+
+Task 1. Modify the code in `index.js` file in such way that
+it takes care of incorrect age values user might specify.
+
+Values considered incorrect are: 
+* zero ("well, you aren't that young, are you?")
+* negative numbers (`-18`, ...)
+* greater than `140`
+* float values (`18.37`) (you might utilize `parseFloat()` here)
+
+Task 2.
+
+Write a code which asks the user what year it is now and year
+(s)he was born. Based on that, calculate his / her / their age.
+
+Eg.
+2018 [current year]
+1934 [born]
+
+= 84.
+
+Use either `alert()` or `console.log()` whichever is more
+convenient.
