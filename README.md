@@ -1,6 +1,17 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-17
+
+#### Task 1.
+
+Modify the code in such way that even lines of list (`<li>…</li>`) are
+rendered in green color with pink background color.
+
+#### Task 2.
+
+In addition to the above, display odd lines prefixed with text `"I'm Groot!"`
+
 ### Homework 2020-11-10
 
 #### Task 1.
