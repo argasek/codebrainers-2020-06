@@ -3,22 +3,32 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const arr = ['red', 'green', 'blue', 'black', 'maroon', 'teal', 'dadadass'];
+  const styleObject = {
+    color: 'blue'
+  };
+
+  const ListItem = props => <li style={props.style}>{props.text}: { props.color }</li>;
+
+  const mapper = function (color, index) {
+    const isIndexEqual2 = index === 2;
+    const styledListItem = <ListItem style={styleObject} color={color} text="Special color" />;
+    const regularListItem = <li>Color name: { color }</li>;
+    return isIndexEqual2 ? styledListItem : regularListItem;
+  };
+
+  // 2
+  const arrayOfColorParagraphs = arr.map(mapper);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hej!</h1>
+      <p>Ala ma kota</p>
+      <ul>
+        {
+          arrayOfColorParagraphs
+        }
+      </ul>
     </div>
   );
 }
