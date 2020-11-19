@@ -5,13 +5,14 @@ import './App.css';
 function App() {
   const arr = ['red', 'green', 'blue', 'black', 'maroon', 'teal', 'dadadass'];
   const styleObject = {
-    color: 'blue'
+    color: 'green',
+    backgroundColor: 'pink'
   };
 
-  const ListItem = props => <li style={props.style}>{props.text}: { props.color }</li>;
+  const ListItem = props => <li style={props.style}> {props.text} : { props.color }, </li>;
 
   const mapper = function (color, index) {
-    const isIndexEqual2 = index === 2;
+    const isIndexEqual2 = index%2 === 1 ;
     const styledListItem = <ListItem style={styleObject} color={color} text="Special color" />;
     const regularListItem = <li>Color name: { color }</li>;
     return isIndexEqual2 ? styledListItem : regularListItem;
