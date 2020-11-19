@@ -13,8 +13,8 @@ function App() {
 
   const mapper = function (color, index) {
     const isIndexEqual2 = index%2 === 1 ;
-    const styledListItem = <ListItem style={styleObject} color={color} text="Special color" />;
-    const regularListItem = <li>Color name: { color }</li>;
+    const styledListItem = <ListItem style={styleObject} color={color} text="Color name" />;
+    const regularListItem = <li>I'm Groot!: { color }</li>;
     return isIndexEqual2 ? styledListItem : regularListItem;
   };
 
