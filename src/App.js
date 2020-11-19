@@ -5,16 +5,17 @@ import './App.css';
 function App() {
   const arr = ['red', 'green', 'blue', 'black', 'maroon', 'teal', 'dadadass'];
   const styleObject = {
-    color: 'blue'
+    color: 'green',
+    backgroundColor: 'pink'
   };
 
   const ListItem = props => <li style={props.style}>{props.text}: { props.color }</li>;
 
   const mapper = function (color, index) {
-    const isIndexEqual2 = index === 2;
-    const styledListItem = <ListItem style={styleObject} color={color} text="Special color" />;
-    const regularListItem = <li>Color name: { color }</li>;
-    return isIndexEqual2 ? styledListItem : regularListItem;
+    const isIndexEven = index % 2;
+    const evenListItem = <ListItem style={styleObject} color={color} text="Special color" />;
+    const oddListItem = <li color={color}>{`"I'm Groot!" Color name: ${color}`}</li>;
+    return isIndexEven ? evenListItem : oddListItem;
   };
 
   // 2

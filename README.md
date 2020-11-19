@@ -5,7 +5,8 @@
 
 #### Task 1.
 
-Modify the code in such way that even lines of list (`<li>…</li>`) are
+Modify the code in such way that 
+even lines of list (`<li>…</li>`) are
 rendered in green color with pink background color.
 
 #### Task 2.
