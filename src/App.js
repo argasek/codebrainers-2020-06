@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Student from './models/student';
+import StudentsList from './components/studentsList';
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -21,6 +22,9 @@ class App extends React.PureComponent {
     return (
       <div>
         <h1>List of students</h1>
+
+        <StudentsList/>
+
       </div>
     );
   }
