@@ -6,3 +6,7 @@
 .students-table th {
     background-color: aquamarine;
 }
+
+.students-table .special td {
+    background-color: burlywood;
+}
