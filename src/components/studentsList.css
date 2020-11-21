@@ -1,4 +1,8 @@
-.students-table td {
+.students-table td, .students-table th {
     padding: 5px;
     border: 1px solid black ;
+}
+
+.students-table th {
+    background-color: aquamarine;
 }

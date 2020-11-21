@@ -2,22 +2,22 @@ import React from 'react';
 
 // import './studentsList.css';
 
-class StudentRow extends React.PureComponent {
+class StudentRowHeader extends React.PureComponent {
 
     render() {
         console.log(this.props);
         return (
             <tr>
-                <td>
+                <th>
                     {this.props.fullName}
-                </td>
-                <td>
+                </th>
+                <th>
                     {this.props.numberOfBoozeUnits}
-                </td>
+                </th>
             </tr>
         )
     }
 
 }
 
-export default StudentRow;
+export default StudentRowHeader;
