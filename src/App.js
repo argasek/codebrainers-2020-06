@@ -20,13 +20,12 @@ class App extends React.PureComponent {
         };
     }
 
-    giveBooze = (index) => {
-        let students = this.state.students;
+    giveBooze = (clickedStudentIndex) => {
+        let students = this.state.students.map(student => student.clone());
 
-        this.setState({
-            students: students
-        })
-        console.log(this.state.students[index].numberOfBoozeUnits++);
+        students[clickedStudentIndex].numberOfBoozeUnits++;
+
+        this.setState({ students: students });
     }
 
     componentDidMount() {
@@ -47,7 +46,11 @@ class App extends React.PureComponent {
 
                 <h1>List of students</h1>
 
-                <StudentsList students={students} clicked={this.state.clicked} giveBooze={this.giveBooze}/>
+                <StudentsList
+                  students={students}
+                  clicked={this.state.clicked}
+                  giveBooze={this.giveBooze}
+                />
                 <button onClick={this.showAlert}>Click me!</button>
             </div>
         );
