@@ -6,6 +6,7 @@ import StudentsList from './components/studentsList';
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
+    console.log(this);
     this.students = [
       new Student('Alicja', 30),
       new Student('Grzegorz', 5),
@@ -15,13 +16,17 @@ class App extends React.PureComponent {
     ];
   }
 
-  showAlert() {
+  componentDidMount() {
+    console.log(this);
   }
 
+  showAlert = () => {
+    console.log(this);
+  }
 
   render() {
     const students = this.students;
-
+    console.log(this);
     return (
       <div className="App">
         <h1>List of students</h1>

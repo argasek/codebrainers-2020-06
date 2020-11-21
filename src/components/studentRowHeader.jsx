@@ -5,7 +5,6 @@ import React from 'react';
 class StudentRowHeader extends React.PureComponent {
 
     render() {
-        console.log(this.props);
         return (
             <tr>
                 <th>
