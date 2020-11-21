@@ -4,6 +4,7 @@ import React from 'react';
 
 class StudentRow extends React.PureComponent {
 
+
     render() {
         console.log(this.props);
         const className = this.props.numberOfBoozeUnits >= 30 && this.props.clicked ? "special" : "";
@@ -15,6 +16,9 @@ class StudentRow extends React.PureComponent {
                 </td>
                 <td>
                     {this.props.numberOfBoozeUnits}
+                </td>
+                <td>
+                    <button onClick={this.props.giveBooze}>Give booze</button>
                 </td>
             </tr>
         )

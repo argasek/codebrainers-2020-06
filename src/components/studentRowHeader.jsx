@@ -13,6 +13,9 @@ class StudentRowHeader extends React.PureComponent {
                 <th>
                     {this.props.numberOfBoozeUnits}
                 </th>
+                <th>
+                    Actions
+                </th>
             </tr>
         )
     }
