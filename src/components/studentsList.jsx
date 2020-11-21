@@ -5,8 +5,11 @@ import StudentRowHeader from "./studentRowHeader";
 
 class StudentsList extends React.PureComponent {
 
-    giveBooze = () => {
-        this.props.numberOfBoozeUnits++; 
+    giveBooze = (index) => {
+      const student = this.props.students[index];
+      console.log('Before = ', this.props.students);
+      student.numberOfBoozeUnits++;
+      console.log('After = ', this.props.students);
     }
 
     render() {
