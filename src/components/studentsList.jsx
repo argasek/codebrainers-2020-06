@@ -6,14 +6,25 @@ import StudentRowHeader from "./studentRowHeader";
 class StudentsList extends React.PureComponent {
 
     render() {
+        const students = this.props.students;
         return (
             <table className='students-table'>
                 <thead>
                     <StudentRowHeader fullName='Imię i Nazwisko' numberOfBoozeUnits='Jednostki gorzały'/>
                 </thead>
                 <tbody>
-                    <StudentRow fullName={'Grzegorz Koczanowicz'} numberOfBoozeUnits={3}/>
-                    <StudentRow numberOfBoozeUnits={4}/>
+                    {
+                        students.map((student, index) => {
+                            return (
+                                <StudentRow
+                                    key={index}
+                                    fullName={student.fullName}
+                                    numberOfBoozeUnits={student.numberOfBoozeUnits}
+                                />
+                            )
+
+                        })
+                    }
                 </tbody>
 
             </table>

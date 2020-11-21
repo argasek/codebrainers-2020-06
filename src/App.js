@@ -23,7 +23,7 @@ class App extends React.PureComponent {
       <div>
         <h1>List of students</h1>
 
-        <StudentsList/>
+        <StudentsList students={students}/>
 
       </div>
     );
