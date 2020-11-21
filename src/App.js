@@ -16,7 +16,7 @@ class App extends React.PureComponent {
         <h1>Hej!</h1>
         <p>Ala ma kota</p>
         <ul>
-          <ListOfColors/>
+          <ListOfColors colors={['red', 'green', 'blue', 'black', 'maroon', 'teal', 'dadadass']}/>
         </ul>
       </div>
     );
