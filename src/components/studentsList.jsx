@@ -7,6 +7,7 @@ class StudentsList extends React.PureComponent {
 
     render() {
         const students = this.props.students;
+        const clicked = this.props.clicked;
         return (
             <table className='students-table'>
                 <thead>
@@ -20,6 +21,7 @@ class StudentsList extends React.PureComponent {
                                     key={index}
                                     fullName={student.fullName}
                                     numberOfBoozeUnits={student.numberOfBoozeUnits}
+                                    clicked={clicked}
                                 />
                             )
 

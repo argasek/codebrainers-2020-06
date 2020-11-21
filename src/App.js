@@ -14,6 +14,7 @@ class App extends React.PureComponent {
       new Student('Szymon H.', 60),
       new Student('Szymon T.', 60),
     ];
+    this.clicked = false;
   }
 
   componentDidMount() {
@@ -21,7 +22,8 @@ class App extends React.PureComponent {
   }
 
   showAlert = () => {
-    console.log(this);
+    this.clicked = true;
+    console.log(this.clicked);
   }
 
   render() {
@@ -31,7 +33,7 @@ class App extends React.PureComponent {
       <div className="App">
         <h1>List of students</h1>
 
-        <StudentsList students={students}/>
+        <StudentsList students={students} clicked={this.clicked}/>
         <button onClick={this.showAlert}>Click me!</button>
       </div>
     );
