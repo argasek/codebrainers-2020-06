@@ -4,45 +4,54 @@ import Student from './models/student';
 import StudentsList from './components/studentsList';
 
 class App extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    console.log(this);
-    this.students = [
-      new Student('Alicja', 30),
-      new Student('Grzegorz', 5),
-      new Student('Rafał', 1),
-      new Student('Szymon H.', 60),
-      new Student('Szymon T.', 60),
-    ];
+    constructor(props) {
+        super(props);
+        console.log(this);
 
-    this.state = {
-      clicked: false
-    };
-  }
+        this.state = {
+            clicked: false,
+            students: [
+                new Student('Alicja', 30),
+                new Student('Grzegorz', 5),
+                new Student('Rafał', 1),
+                new Student('Szymon H.', 60),
+                new Student('Szymon T.', 60),
+            ],
+        };
+    }
 
-  componentDidMount() {
-    console.log(this);
-  }
+    giveBooze = (index) => {
+        let students = this.state.students;
 
-  showAlert = () => {
-    this.setState({
-      clicked: true
-    });
-  }
+        this.setState({
+            students: students
+        })
+        console.log(this.state.students[index].numberOfBoozeUnits++);
+    }
 
-  render() {
-    const students = this.students;
+    componentDidMount() {
+        console.log(this);
+    }
 
-    return (
-      <div className="App">
+    showAlert = () => {
+        this.setState({
+            clicked: true
+        });
+    }
 
-        <h1>List of students</h1>
+    render() {
+        const students = this.state.students;
 
-        <StudentsList students={students} clicked={this.state.clicked}/>
-        <button onClick={this.showAlert}>Click me!</button>
-      </div>
-    );
-  }
+        return (
+            <div className="App">
+
+                <h1>List of students</h1>
+
+                <StudentsList students={students} clicked={this.state.clicked} giveBooze={this.giveBooze}/>
+                <button onClick={this.showAlert}>Click me!</button>
+            </div>
+        );
+    }
 }
 
 export default App;

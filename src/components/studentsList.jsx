@@ -5,12 +5,7 @@ import StudentRowHeader from "./studentRowHeader";
 
 class StudentsList extends React.PureComponent {
 
-    giveBooze = (index) => {
-      const student = this.props.students[index];
-      console.log('Before = ', this.props.students);
-      student.numberOfBoozeUnits++;
-      console.log('After = ', this.props.students);
-    }
+
 
     render() {
         const students = this.props.students;
@@ -29,7 +24,7 @@ class StudentsList extends React.PureComponent {
                                     fullName={student.fullName}
                                     numberOfBoozeUnits={student.numberOfBoozeUnits}
                                     clicked={clicked}
-                                    giveBooze={this.giveBooze}
+                                    giveBooze={this.props.giveBooze}
                                     index={index}
                                 />
                             )
