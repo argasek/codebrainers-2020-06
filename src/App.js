@@ -15,16 +15,19 @@ class App extends React.PureComponent {
     ];
   }
 
+  showAlert() {
+  }
+
 
   render() {
     const students = this.students;
 
     return (
-      <div>
+      <div className="App">
         <h1>List of students</h1>
 
         <StudentsList students={students}/>
-
+        <button onClick={this.showAlert}>Click me!</button>
       </div>
     );
   }

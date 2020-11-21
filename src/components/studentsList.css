@@ -10,3 +10,6 @@
 .students-table .special td {
     background-color: burlywood;
 }
+.students-table {
+    margin-bottom: 1em;
+}
