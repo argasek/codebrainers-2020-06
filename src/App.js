@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ListOfColors from './components/listOfColors'
 
 class App extends React.PureComponent {
 
@@ -31,6 +32,7 @@ class App extends React.PureComponent {
       <div>
         <h1>Hej!</h1>
         <p>Ala ma kota</p>
+        <ListOfColors></ListOfColors>
         <ul>
           {
             arrayOfColorParagraphs
