@@ -1,6 +1,34 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-21
+
+#### Task 1.
+
+Instead of having "Give booze" button only, replace them with
+set of buttons, named `+` and `-`, which act according to their
+naming, i.e. clicking on `+` increases number of booze for given
+student, while `-` does opposite.
+
+#### Task 2.
+
+If given user's numberOfBoozeUnits exceeds certain level (let's
+agree 100 this level), get rid of this user.
+
+#### Task 3.
+
+Set number of booze units of particular user initially to a small
+number (let's say `1`) and click (`-`) twice. Well, we shouldn't
+allow student to have a negative number of booze units, shall we?
+
+#### Task 4*.
+
+Remove "Click me!" button. Instead,
+create a button called "Add new student" which adds a new student
+to the list of students with randomly chosen name and random number
+of booze units. Important: all logic implemented so far and in
+tasks 1-3 should remain intact for this user.
+
 ### Homework 2020-11-17
 
 #### Task 1.
