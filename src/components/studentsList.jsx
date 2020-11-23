@@ -25,6 +25,7 @@ class StudentsList extends React.PureComponent {
                                     numberOfBoozeUnits={student.numberOfBoozeUnits}
                                     clicked={clicked}
                                     giveBooze={this.props.giveBooze}
+                                    takeOfBooze={this.props.takeOfBooze}
                                     index={index}
                                 />
                             )

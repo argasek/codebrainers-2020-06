@@ -11,11 +11,11 @@ class App extends React.PureComponent {
         this.state = {
             clicked: false,
             students: [
-                new Student('Alicja', 30),
-                new Student('Grzegorz', 5),
-                new Student('Rafał', 1),
-                new Student('Szymon H.', 60),
-                new Student('Szymon T.', 60),
+                new Student('Alicja', 10),
+                new Student('Grzegorz', 10),
+                new Student('Rafał', 10),
+                new Student('Szymon H.', 10),
+                new Student('Szymon T.', 10),
             ],
         };
     }
@@ -24,6 +24,14 @@ class App extends React.PureComponent {
         let students = this.state.students.map(student => student.clone());
 
         students[clickedStudentIndex].numberOfBoozeUnits++;
+
+        this.setState({ students: students });
+    }
+
+    takeOfBooze = (clickedStudentIndex) => {
+        let students = this.state.students.map(student => student.clone());
+
+        students[clickedStudentIndex].numberOfBoozeUnits--;
 
         this.setState({ students: students });
     }
@@ -50,6 +58,7 @@ class App extends React.PureComponent {
                   students={students}
                   clicked={this.state.clicked}
                   giveBooze={this.giveBooze}
+                  takeOfBooze={this.takeOfBooze}
                 />
                 <button onClick={this.showAlert}>Click me!</button>
             </div>
