@@ -11,11 +11,11 @@ class App extends React.PureComponent {
         this.state = {
             clicked: false,
             students: [
-                new Student('Alicja', 10),
-                new Student('Grzegorz', 10),
-                new Student('Rafał', 10),
-                new Student('Szymon H.', 10),
-                new Student('Szymon T.', 10),
+                new Student('Alicja', 99),
+                new Student('Grzegorz', 99),
+                new Student('Rafał', 80),
+                new Student('Szymon H.', 80),
+                new Student('Szymon T.', 99),
             ],
         };
     }
