@@ -6,7 +6,7 @@ class StudentRow extends React.PureComponent {
 
 
     render() {
-
+        const disabled = this.props.numberOfBoozeUnits <=0;
         const className = this.props.numberOfBoozeUnits >= 30 && this.props.clicked ? "special" : "";
         // const className = '';
         if (this.props.numberOfBoozeUnits <= 100) {
@@ -23,7 +23,7 @@ class StudentRow extends React.PureComponent {
                           this.props.giveBooze(this.props.index);
 
                         }}>+</button>
-                        <button onClick={() => {
+                        <button disabled={disabled} onClick={() => {
                           this.props.takeOfBooze(this.props.index);
 
                         }}>-</button>
