@@ -7,7 +7,7 @@ class StudentRow extends React.PureComponent {
 
     render() {
 
-        const className = this.props.numberOfBoozeUnits >= 90 && this.props.clicked ? "special" : "";
+        const className = this.props.numberOfBoozeUnits >= 30 && this.props.clicked ? "special" : "";
         // const className = '';
         if (this.props.numberOfBoozeUnits <= 100) {
             return (

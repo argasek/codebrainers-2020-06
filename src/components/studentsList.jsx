@@ -22,7 +22,7 @@ class StudentsList extends React.PureComponent {
                                 <StudentRow
                                     key={index}
                                     fullName={student.fullName}
-                                    numberOfBoozeUnits={student.numberOfBoozeUnits}
+                                    numberOfBoozeUnits={student.numberOfBoozeUnits <0 ? 0 : student.numberOfBoozeUnits}
                                     clicked={clicked}
                                     giveBooze={this.props.giveBooze}
                                     takeOfBooze={this.props.takeOfBooze}
