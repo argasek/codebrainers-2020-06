@@ -6,9 +6,9 @@ import StudentsList from './components/studentsList';
 class App extends React.PureComponent {
     constructor(props) {
         super(props);
-        console.log(this);
-
+        this.isFullNamePristine = true;
         this.state = {
+            // isFullNamePristine: true,
             clicked: false,
             students: [
                 new Student('Alicja', 1),
@@ -20,6 +20,11 @@ class App extends React.PureComponent {
             fullName: "",
         };
     }
+    getInputClassName = () => {
+         return (this.hasInputError() && !this.isFullNamePristine) ? "has-error" : ""
+    }
+
+    hasInputError = () => !(this.state.fullName.trim()!=="");
 
     giveBooze = (clickedStudentIndex) => {
         let students = this.state.students.map(student => student.clone());
@@ -40,13 +45,21 @@ class App extends React.PureComponent {
     addNewStudent = () => {
         let students = this.state.students.map(student => student.clone());
         const randomBoozeUnits = Math.floor(Math.random() * 99) + 1;
-        const fullName = 'Anonymous';
+        const fullName = this.state.fullName.trim();
         students.push(new Student(fullName, randomBoozeUnits));
         this.setState({ students: students });
     };
 
-    componentDidMount() {
-        console.log(this);
+    // componentDidMount() {
+    //     console.log(this);
+    // }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevState);
+        console.log(this.state);
+        if (prevState.fullName !== this.state.fullName){
+            this.isFullNamePristine = false;
+           // this.setState({isFullNamePristine: false});
+        }
     }
 
     setStudentFullName = (event) => {
@@ -71,9 +84,14 @@ class App extends React.PureComponent {
                 />
                 <p>
                     <label>Full name:</label><br />
-                    <input type="text" placeholder="Type in name…" onChange={ this.setStudentFullName } />
+                    <input type="text"
+                           placeholder="Type in name…"
+                           onChange={ this.setStudentFullName }
+                           value={this.state.fullName}
+                           className={this.getInputClassName()}
+                    />
                 </p>
-                <button onClick={ this.addNewStudent }>Add student!</button>
+                <button onClick={ this.addNewStudent } disabled={this.hasInputError()}>Add student!</button>
             </div>
         );
     }
