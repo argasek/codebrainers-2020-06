@@ -29,7 +29,6 @@ class StudentsList extends React.PureComponent {
                                     index={index}
                                 />
                             )
-
                         })
                     }
                 </tbody>

@@ -36,15 +36,29 @@ class App extends React.PureComponent {
         this.setState({ students: students });
     }
 
+    getRandomIntNameArray = array => array[Math.floor(Math.random() * array.length)];
+
+    addNewStudent = () => {
+        let students = this.state.students.map(student => student.clone());
+        const randomBoozeUnits = Math.floor(Math.random() * 99) + 1;
+        const nameArray = ['Konstanty',
+            'Julka', 'Andżej', 'Joanna',
+            'Marta', 'Rysiu', 'Jareczek',
+            'Janusz', 'Juleczka'];
+        const indexOfName = Math.floor(Math.random() * nameArray.length);
+        students.push(new Student(nameArray[indexOfName], randomBoozeUnits));
+        this.setState({students: students});
+    }
+
     componentDidMount() {
         console.log(this);
     }
 
-    showAlert = () => {
-        this.setState({
-            clicked: true
-        });
-    }
+    // showAlert = () => {
+    //     this.setState({
+    //         clicked: true
+    //     });
+    // }
 
     render() {
         const students = this.state.students;
@@ -60,7 +74,8 @@ class App extends React.PureComponent {
                   giveBooze={this.giveBooze}
                   takeOfBooze={this.takeOfBooze}
                 />
-                <button onClick={this.showAlert}>Click me!</button>
+                {/*<button onClick={this.showAlert}>Click me!</button>*/}
+                <button onClick={this.addNewStudent}>Add student!</button>
             </div>
         );
     }
