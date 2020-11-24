@@ -28,8 +28,8 @@ class App extends React.PureComponent {
         let students = this.state.students.map(student => student.clone());
         if (action === "give") {
         students[clickedStudentIndex].numberOfBoozeUnits++;
-        } else {
-        students[clickedStudentIndex].numberOfBoozeUnits--;
+        } else if (action==="take away") {
+        students[clickedStudentIndex].numberOfBoozeUnits > 0 ? students[clickedStudentIndex].numberOfBoozeUnits-- : students[clickedStudentIndex].numberOfBoozeUnits = 0;
         }
         this.boozeControl(students, clickedStudentIndex);
         this.setState({ students: students });
