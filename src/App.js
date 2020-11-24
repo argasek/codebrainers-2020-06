@@ -21,7 +21,7 @@ class App extends React.PureComponent {
     }
     boozeControl = (listOfStudents, index) =>{
         if (listOfStudents[index].numberOfBoozeUnits > 100) {
-            delete listOfStudents[index]
+            delete listOfStudents[index];
         }
     }
     giveBooze = (clickedStudentIndex,action) => {
@@ -34,10 +34,16 @@ class App extends React.PureComponent {
         this.boozeControl(students, clickedStudentIndex);
         this.setState({ students: students });
     }
-
-    componentDidMount() {
-        console.log(this);
+    addStudent = () => {
+        let students = this.state.students.map(student => student.clone());
+        const newStudentName = students[[Math.floor(Math.random()*students.length)]].fullName
+        const newStudentBooze = students[[Math.floor(Math.random()*students.length)]].numberOfBoozeUnits
+        const newStudentObj = new Student(newStudentName, newStudentBooze);
+        students.push(newStudentObj);
+        this.setState({students:students})
     }
+
+
 
     showAlert = () => {
         this.setState({
@@ -58,7 +64,7 @@ class App extends React.PureComponent {
                   clicked={this.state.clicked}
                   giveBooze={this.giveBooze}
                 />
-                <button onClick={this.showAlert}>Click me!</button>
+                <button onClick={this.addStudent}>Add Student</button>
             </div>
         );
     }
