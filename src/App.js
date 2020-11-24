@@ -17,6 +17,7 @@ class App extends React.PureComponent {
                 new Student('Szymon H.', 1),
                 new Student('Szymon T.', 1),
             ],
+            fullName: "",
         };
     }
 
@@ -51,6 +52,7 @@ class App extends React.PureComponent {
     setStudentFullName = (event) => {
         const fullName = event.currentTarget.value;
         console.log(fullName);
+        this.setState({ fullName })
     };
 
     render() {
