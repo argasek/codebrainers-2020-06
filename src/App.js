@@ -66,6 +66,13 @@ class App extends React.PureComponent {
         this.setState({ fullName })
     };
 
+    removeStudent = (studentIndex) => {
+        const students = this.state.students.filter((student, index) => {
+            return !(index === studentIndex);
+        })
+        this.setState({ students: students });
+    }
+
     render() {
         const students = this.state.students;
 
@@ -79,6 +86,7 @@ class App extends React.PureComponent {
                     clicked={ this.state.clicked }
                     giveBooze={ this.giveBooze }
                     takeBooze={ this.takeBooze }
+                    removeStudent={this.removeStudent}
                 />
                 <p>
                     <label>Full name:</label><br />
