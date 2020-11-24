@@ -26,37 +26,32 @@ class App extends React.PureComponent {
         students[clickedStudentIndex].numberOfBoozeUnits++;
 
         this.setState({ students: students });
-    }
+    };
 
-    takeOfBooze = (clickedStudentIndex) => {
+    takeBooze = (clickedStudentIndex) => {
         let students = this.state.students.map(student => student.clone());
 
         students[clickedStudentIndex].numberOfBoozeUnits--;
 
         this.setState({ students: students });
-    }
+    };
 
     addNewStudent = () => {
         let students = this.state.students.map(student => student.clone());
         const randomBoozeUnits = Math.floor(Math.random() * 99) + 1;
-        const nameArray = ['Konstanty',
-            'Julka', 'Andżej', 'Joanna',
-            'Marta', 'Rysiu', 'Jareczek',
-            'Janusz', 'Juleczka'];
-        const nameIndex = Math.floor(Math.random() * nameArray.length);
-        students.push(new Student(nameArray[nameIndex], randomBoozeUnits));
-        this.setState({students: students});
-    }
+        const fullName = 'Anonymous';
+        students.push(new Student(fullName, randomBoozeUnits));
+        this.setState({ students: students });
+    };
 
     componentDidMount() {
         console.log(this);
     }
 
-    // showAlert = () => {
-    //     this.setState({
-    //         clicked: true
-    //     });
-    // }
+    setStudentFullName = (event) => {
+        const fullName = event.currentTarget.value;
+        console.log(fullName);
+    };
 
     render() {
         const students = this.state.students;
@@ -67,13 +62,16 @@ class App extends React.PureComponent {
                 <h1>List of students</h1>
 
                 <StudentsList
-                  students={students}
-                  clicked={this.state.clicked}
-                  giveBooze={this.giveBooze}
-                  takeOfBooze={this.takeOfBooze}
+                    students={ students }
+                    clicked={ this.state.clicked }
+                    giveBooze={ this.giveBooze }
+                    takeBooze={ this.takeBooze }
                 />
-                {/*<button onClick={this.showAlert}>Click me!</button>*/}
-                <button onClick={this.addNewStudent}>Add student!</button>
+                <p>
+                    <label>Full name:</label><br />
+                    <input type="text" placeholder="Type in name…" onChange={ this.setStudentFullName } />
+                </p>
+                <button onClick={ this.addNewStudent }>Add student!</button>
             </div>
         );
     }

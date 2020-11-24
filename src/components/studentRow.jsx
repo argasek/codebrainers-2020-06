@@ -21,11 +21,9 @@ class StudentRow extends React.PureComponent {
                     <td>
                         <button onClick={() => {
                           this.props.giveBooze(this.props.index);
-
                         }}>+</button>
                         <button disabled={disabled} onClick={() => {
-                          this.props.takeOfBooze(this.props.index);
-
+                          this.props.takeBooze(this.props.index);
                         }}>-</button>
                     </td>
                 </tr>
