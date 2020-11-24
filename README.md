@@ -19,7 +19,7 @@ agree 100 this level), get rid of this user.
 
 Set number of booze units of particular user initially to a small
 number (let's say `1`) and click (`-`) twice. Well, we shouldn't
-allow student to have a negative number of booze units, shall we?
+allow student to have a n**egative number of booze units, shall we?**
 
 #### Task 4*.
 

@@ -14,12 +14,16 @@ class App extends React.PureComponent {
                 new Student('Alicja', 30),
                 new Student('Grzegorz', 5),
                 new Student('Rafał', 1),
-                new Student('Szymon H.', 60),
-                new Student('Szymon T.', 60),
+                new Student('Szymon H.', 98),
+                new Student('Szymon T.', 99),
             ],
         };
     }
-
+    boozeControl = (listOfStudents, index) =>{
+        if (listOfStudents[index].numberOfBoozeUnits > 100) {
+            delete listOfStudents[index]
+        }
+    }
     giveBooze = (clickedStudentIndex,action) => {
         let students = this.state.students.map(student => student.clone());
         if (action === "give") {
@@ -27,6 +31,7 @@ class App extends React.PureComponent {
         } else {
         students[clickedStudentIndex].numberOfBoozeUnits--;
         }
+        this.boozeControl(students, clickedStudentIndex);
         this.setState({ students: students });
     }
 
