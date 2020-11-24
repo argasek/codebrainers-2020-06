@@ -20,11 +20,13 @@ class App extends React.PureComponent {
         };
     }
 
-    giveBooze = (clickedStudentIndex) => {
+    giveBooze = (clickedStudentIndex,action) => {
         let students = this.state.students.map(student => student.clone());
-
+        if (action === "give") {
         students[clickedStudentIndex].numberOfBoozeUnits++;
-
+        } else {
+        students[clickedStudentIndex].numberOfBoozeUnits--;
+        }
         this.setState({ students: students });
     }
 
