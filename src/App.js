@@ -36,8 +36,6 @@ class App extends React.PureComponent {
         this.setState({ students: students });
     }
 
-    getRandomIntNameArray = array => array[Math.floor(Math.random() * array.length)];
-
     addNewStudent = () => {
         let students = this.state.students.map(student => student.clone());
         const randomBoozeUnits = Math.floor(Math.random() * 99) + 1;
