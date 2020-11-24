@@ -45,8 +45,8 @@ class App extends React.PureComponent {
             'Julka', 'Andżej', 'Joanna',
             'Marta', 'Rysiu', 'Jareczek',
             'Janusz', 'Juleczka'];
-        const indexOfName = Math.floor(Math.random() * nameArray.length);
-        students.push(new Student(nameArray[indexOfName], randomBoozeUnits));
+        const nameIndex = Math.floor(Math.random() * nameArray.length);
+        students.push(new Student(nameArray[nameIndex], randomBoozeUnits));
         this.setState({students: students});
     }
 
