@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import Student from './models/student';
 import StudentsList from './components/studentsList';
+import { students } from './models/students';
+
+
+// CRUD = Create Retrieve Update Delete
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -9,13 +13,7 @@ class App extends React.PureComponent {
         this.state = {
             isFullNamePristine: true,
             clicked: false,
-            students: [
-                new Student('Alicja', 1),
-                new Student('Grzegorz', 1),
-                new Student('Rafał', 1),
-                new Student('Szymon H.', 1),
-                new Student('Szymon T.', 1),
-            ],
+            students,
             fullName: "",
         };
     }

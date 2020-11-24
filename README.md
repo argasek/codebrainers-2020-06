@@ -1,6 +1,42 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-24
+
+
+#### Task 1*.
+
+Implement function of the application which allows to edit students.
+
+Each student row in the column Actions should have additional button
+called 'Edit'.
+
+When 'Edit' is clicked, this particular row is "taken out" of the
+regular table, and instead you should render all non-edited rows
+appearing before & after this row.
+
+Edited row should change its appearance in such way that it is
+no longer rendered as `<tr>…</tr>` element. Instead, build a
+simple form with labels:
+
+```
+Full name:             Booze units:
+__________________     ___________________     [ Cancel ] [ Save ]
+```
+
+The above form should be prefilled with the values taken from
+this particular student.
+
+Clicking the `[ Save ]` button should update the edited row and
+switch back display mode to a regular one.
+
+#### Task 2**.
+
+BEWARE: during editing of the student user might change his / her
+mind. Clicking `[ Cancel ]` should interrupt editing and reset
+values to the previous ones.
+
+
 ### Homework 2020-11-21
 
 #### Task 1.
