@@ -6,9 +6,8 @@ import StudentsList from './components/studentsList';
 class App extends React.PureComponent {
     constructor(props) {
         super(props);
-        this.isFullNamePristine = true;
         this.state = {
-            // isFullNamePristine: true,
+            isFullNamePristine: true,
             clicked: false,
             students: [
                 new Student('Alicja', 1),
@@ -21,7 +20,7 @@ class App extends React.PureComponent {
         };
     }
     getInputClassName = () => {
-         return (this.hasInputError() && !this.isFullNamePristine) ? "has-error" : ""
+         return (this.hasInputError() && !this.state.isFullNamePristine) ? "has-error" : ""
     }
 
     hasInputError = () => !(this.state.fullName.trim()!=="");
@@ -57,8 +56,7 @@ class App extends React.PureComponent {
         console.log(prevState);
         console.log(this.state);
         if (prevState.fullName !== this.state.fullName){
-            this.isFullNamePristine = false;
-           // this.setState({isFullNamePristine: false});
+           this.setState({isFullNamePristine: false});
         }
     }
 
