@@ -2,6 +2,7 @@ import React from 'react';
 import './studentsList.css';
 import StudentRow from "./studentRow";
 import StudentRowHeader from "./studentRowHeader";
+import StudentEditForm from './studentEditForm';
 
 class StudentsList extends React.PureComponent {
 
@@ -9,7 +10,7 @@ class StudentsList extends React.PureComponent {
         const students = this.props.students;
         const clicked = this.props.clicked;
         const editedStudentIndex = this.props.editedStudentIndex;
-        const isEditModeActive = editedStudentIndex !== undefined;
+        const toggleEditStudent = () => this.props.toggleEditStudent(undefined);
 
         return (
             <div>
@@ -34,11 +35,14 @@ class StudentsList extends React.PureComponent {
                                         giveBooze={ this.props.giveBooze }
                                         takeBooze={ this.props.takeBooze }
                                         removeStudent={ this.props.removeStudent }
-                                        editStudent={ this.props.editStudent }
+                                        editStudent={ this.props.toggleEditStudent }
                                         index={ index }
                                     />
                                     :
-                                    <p>This row is edited!</p>
+                                    <StudentEditForm
+                                        student={student}
+                                        toggleEditStudent={toggleEditStudent}
+                                    />
                             )
                         })
 

@@ -63,7 +63,7 @@ class App extends React.PureComponent {
         this.setState({ fullName })
     };
 
-    editStudent = (editedStudentIndex) => {
+    toggleEditStudent = (editedStudentIndex) => {
         console.log('editedStudentIndex: ', editedStudentIndex);
         this.setState({ editedStudentIndex });
     }
@@ -90,7 +90,7 @@ class App extends React.PureComponent {
                     giveBooze={ this.giveBooze }
                     takeBooze={ this.takeBooze }
                     editedStudentIndex={editedStudentIndex}
-                    editStudent={this.editStudent }
+                    toggleEditStudent={this.toggleEditStudent }
                     removeStudent={this.removeStudent}
                 />
                 <p>
