@@ -11,6 +11,7 @@ class App extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
+            editedStudentIndex: undefined,
             isFullNamePristine: true,
             clicked: false,
             students,
@@ -50,9 +51,8 @@ class App extends React.PureComponent {
     // componentDidMount() {
     //     console.log(this);
     // }
+
     componentDidUpdate(prevProps, prevState) {
-        console.log(prevState);
-        console.log(this.state);
         if (prevState.fullName !== this.state.fullName){
            this.setState({isFullNamePristine: false});
         }
@@ -60,9 +60,13 @@ class App extends React.PureComponent {
 
     setStudentFullName = (event) => {
         const fullName = event.currentTarget.value;
-        console.log(fullName);
         this.setState({ fullName })
     };
+
+    editStudent = (editedStudentIndex) => {
+        console.log('editedStudentIndex: ', editedStudentIndex);
+        this.setState({ editedStudentIndex });
+    }
 
     removeStudent = (studentIndex) => {
         const students = this.state.students.filter((student, index) => {
@@ -73,6 +77,7 @@ class App extends React.PureComponent {
 
     render() {
         const students = this.state.students;
+        const editedStudentIndex = this.state.editedStudentIndex;
 
         return (
             <div className="App">
@@ -84,6 +89,8 @@ class App extends React.PureComponent {
                     clicked={ this.state.clicked }
                     giveBooze={ this.giveBooze }
                     takeBooze={ this.takeBooze }
+                    editedStudentIndex={editedStudentIndex}
+                    editStudent={this.editStudent }
                     removeStudent={this.removeStudent}
                 />
                 <p>
