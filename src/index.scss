@@ -12,3 +12,13 @@ code {
     monospace;
 }
 
+
+p {
+  color: black;
+}
+
+p > span {
+  color: red;
+}
+
+
