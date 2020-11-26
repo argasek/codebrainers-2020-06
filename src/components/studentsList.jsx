@@ -12,6 +12,9 @@ class StudentsList extends React.PureComponent {
         const editedStudentIndex = this.props.editedStudentIndex;
         const toggleEditStudent = () => this.props.toggleEditStudent(undefined);
 
+        const updateBoozeUnits = (event) => this.props.updateBoozeUnits(event.currentTarget.value);
+        const updateFullName = (event) => this.props.updateFullName(event.currentTarget.value);
+
         return (
             <div>
                 <h2>{(editedStudentIndex !== undefined).toString()}{' '}{''+editedStudentIndex}</h2>
@@ -40,6 +43,8 @@ class StudentsList extends React.PureComponent {
                                     />
                                     :
                                     <StudentEditForm
+                                        editBoozeUnits={updateBoozeUnits}
+                                        editFullName={updateFullName}
                                         student={student}
                                         toggleEditStudent={toggleEditStudent}
                                     />

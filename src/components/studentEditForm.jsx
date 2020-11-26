@@ -9,11 +9,11 @@ const StudentEditForm = (props) => {
         <tr>
             <td>
                 <label>Full name:</label><br/>
-                <input type='text' value={fullName} />
+                <input type='text' value={fullName} onChange={props.editFullName} />
             </td>
             <td>
                 <label>Booze units:</label><br/>
-                <input type='text' value={numberOfBoozeUnits} />
+                <input type='text' value={numberOfBoozeUnits} onChange={props.editBoozeUnits} />
             </td>
             <td>
                 <button onClick={toggleEditStudent}>Save</button>

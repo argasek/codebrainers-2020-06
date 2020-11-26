@@ -24,19 +24,32 @@ class App extends React.PureComponent {
 
     hasInputError = () => !(this.state.fullName.trim()!=="");
 
+
+    getClonedStudents = () => this.state.students.map(student => student.clone());
+
     giveBooze = (clickedStudentIndex) => {
-        let students = this.state.students.map(student => student.clone());
-
+        const students = this.getClonedStudents();
         students[clickedStudentIndex].numberOfBoozeUnits++;
-
         this.setState({ students: students });
     };
 
     takeBooze = (clickedStudentIndex) => {
-        let students = this.state.students.map(student => student.clone());
-
+        const students = this.getClonedStudents();
         students[clickedStudentIndex].numberOfBoozeUnits--;
+        this.setState({ students: students });
+    };
 
+    updateFullName = (fullName) => {
+        const editedStudentIndex = this.state.editedStudentIndex;
+        const students = this.getClonedStudents();
+        students[editedStudentIndex].fullName = fullName;
+        this.setState({ students: students });
+    };
+
+    updateBoozeUnits = (numberOfBoozeUnits) => {
+        const editedStudentIndex = this.state.editedStudentIndex;
+        const students = this.getClonedStudents();
+        students[editedStudentIndex].numberOfBoozeUnits = numberOfBoozeUnits;
         this.setState({ students: students });
     };
 
@@ -92,6 +105,8 @@ class App extends React.PureComponent {
                     editedStudentIndex={editedStudentIndex}
                     toggleEditStudent={this.toggleEditStudent }
                     removeStudent={this.removeStudent}
+                    updateFullName={this.updateFullName}
+                    updateBoozeUnits={this.updateBoozeUnits}
                 />
                 <p>
                     <label>Full name:</label><br />
