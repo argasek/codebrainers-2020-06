@@ -19,6 +19,37 @@ class Plants extends React.PureComponent {
     };
   }
 
+  componentDidMount() {
+    this.fetchCategories()
+      .finally(() => {
+        this.setState({ inProgress: false });
+      })
+  }
+
+  fetchCategories() {
+
+    const requestUrl = 'http://gentle-tor-07382.herokuapp.com/categories/';
+    this.setState({ inProgress: true });
+    return this.props.delayFetch(CATEGORIES_FETCH_DELAY, (resolve, reject) => {
+      return axios.get(requestUrl)
+        .then((response) => {
+          const data = response.data;
+          const categories = data.map((item) => item.name);
+          const successCategories = true;
+          this.setState({ categories, successCategories });
+          console.log('after setState();')
+          resolve(response);
+        })
+        .catch((error) => {
+          this.setState({ successCategories: false });
+          reject(error);
+        })
+        .finally(() => {
+          console.log('Resolved');
+        });
+    });
+  }
+
 
   componentDidMount() {
     this.fetchPlants()
