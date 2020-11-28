@@ -10,4 +10,13 @@ const someOtherArray = [
   { label: 'Co tydzień', value: '7' },
 ];
 
-export { someArray, someOtherArray };
+const plantDifficultyLevels = [
+  { label: 'Very easy', value: 1 },
+  { label: 'Easy', value: 2 },
+  { label: 'Moderate', value: 3 },
+  { label: 'Hard', value: 4 },
+  { label: 'Really hard', value: 5 },
+];
+
+
+export { plantDifficultyLevels, someArray, someOtherArray };

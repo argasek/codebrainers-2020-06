@@ -3,7 +3,7 @@ import { FormGroup, Input, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 const Select = ({ value, name, onChange, options, label }) => {
-  const id = `select${name}`;
+  const id = `basia${name}`;
 
   return (
     <FormGroup>
