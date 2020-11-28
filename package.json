@@ -15,6 +15,7 @@
     "@fortawesome/react-fontawesome": "^0.1.13",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "caniuse-lite": "^1.0.30001161",
     "classnames": "^2.2.6",
     "formik": "^2.2.5",
     "prop-types": "^15.7.2",
