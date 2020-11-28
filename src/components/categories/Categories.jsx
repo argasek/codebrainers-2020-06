@@ -28,17 +28,18 @@ class Categories extends React.PureComponent {
     const requestUrl = 'http://gentle-tor-07382.herokuapp.com/categories/';
     this.setState({ inProgress: true });
     return this.props.delayFetch(CATEGORIES_FETCH_DELAY, (resolve, reject) => {
-      axios.get(requestUrl)
+      return axios.get(requestUrl)
         .then((response) => {
           const data = response.data;
           const categories = data.map((item) => item.name);
           const successCategories = true;
           this.setState({ categories, successCategories });
-          resolve();
+          console.log('after setState();')
+          resolve(response);
         })
         .catch((error) => {
           this.setState({ successCategories: false });
-          reject();
+          reject(error);
         })
         .finally(() => {
           console.log('Resolved');
@@ -46,13 +47,22 @@ class Categories extends React.PureComponent {
     });
   }
 
+  categoriesMapper = (item, index, arr) => (
+    <CategoryItem
+      category={item}
+      label='category'
+      key={index}
+      isLastItem={arr.length - 1 === index}
+      index={index}
+    />
+  )
+
   render() {
     const {
       inProgress,
       successCategories,
       categories,
     } = this.state;
-
 
     return (
       <Card>
@@ -67,15 +77,7 @@ class Categories extends React.PureComponent {
               successCategories &&
               <ListGroup className="categories">
                 {
-                  categories.map((item, index, arr) =>
-                    <CategoryItem
-                      category={item}
-                      label='category'
-                      key={index}
-                      isLastItem={arr.length - 1 === index}
-                      index={index}
-                    />
-                  )
+                  categories.map(this.categoriesMapper)
                 }
               </ListGroup>
             }
