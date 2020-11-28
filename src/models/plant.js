@@ -3,9 +3,10 @@ class Plant {
     this.id = undefined;
     this.name = "";
   }
-  fromPlain (item) {
+
+  fromPlain(item) {
     this.blooming = item.blooming;
-    this.category = item.category;
+    this.categoryId = item.category;
     this.categorySlug = item.category_slug;
     this.difficulty = item.difficulty;
     this.fertilizingInterval = item.fertilizing_interval;
@@ -16,10 +17,11 @@ class Plant {
     this.requiredExposure = item.required_exposure;
     this.requiredHumidity = item.required_humidity;
     this.requiredTemperature = item.required_temperature;
-    this.room = item.room;
+    this.roomId = item.room;
     this.url = item.url;
     this.wateringInterval = item.watering_interval;
-    return this
+    return this;
   }
 }
+
 export default Plant;

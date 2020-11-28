@@ -1,6 +1,31 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-11-28
+
+#### Task 1.
+
+Display progress indicator on Plants page as long as *both*
+`categories` and `plants` are not fetched.
+
+#### Task 2.
+
+Instead of showing `?` as Category name show spinner.
+
+#### Task 3.
+
+Bring back displaying of Categories to **Categories** tab.
+
+#### Task 4.
+
+OK, so you brought Categories back to life. Don't you think
+there's a lot repeated code in your codebase? If you think there
+is not, what are the consequences.
+
+Hint: you can either copy-paste logic to `Categories` or place
+fetching of Categories somewhere else. What are the consequences
+of the 2nd approach. 
+
 ### Homework 2020-11-24
 
 
