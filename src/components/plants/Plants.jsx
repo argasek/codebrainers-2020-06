@@ -1,11 +1,13 @@
-import { Card, CardBody } from "reactstrap";
+import { Card, CardBody, Row, Col } from "reactstrap";
 import React from "react";
 import PropTypes from "prop-types";
-import PlantRow from "components/plants/Plant";
+import PlantItem from "components/plants/Plant";
 import axios from "axios";
 import Plant from "models/plant";
 
-const PLANTS_FETCH_DELAY = 5000;
+
+
+const PLANTS_FETCH_DELAY = 0;
 
 class Plants extends React.PureComponent {
   constructor(props) {
@@ -40,7 +42,6 @@ class Plants extends React.PureComponent {
             const plant = new Plant();
             return  plant.fromPlain(item);
           });
-          debugger;
           this.setState({ plants, successPlants });
           console.log('after setState();')
           resolve(response);
@@ -54,12 +55,31 @@ class Plants extends React.PureComponent {
         });
     });
   }
+  getLastIndices = (arrayCount, howMany) => {
+    return Array.from(new Array(arrayCount).fill(1), (x, index) => x + index).slice(arrayCount - howMany);
+  }
+  isWithinLastIndices = (arr, howMany, index) => {
+    return this.getLastIndices(arr.length, howMany).includes(index);
+  }
+  plantsMapper = (plant, index, arr) => (
+    <Col lg={4} xl={3} md={2}>
+       <PlantItem
+      plant = {plant}
+      key={plant.id}
+      isLastItems={this.isWithinLastIndices(arr, 3, index)}
+      index={index}
+    />
+    </Col>
+
+  );
   render() {
     const {inProgress, successPlants, plants} = this.state;
     return (
       <Card className="mb-4">
         <CardBody>
-            <PlantRow plant={plants[0]}  />
+          <Row>
+          {plants.map(this.plantsMapper)}
+          </Row>
         </CardBody>
       </Card>
     );
