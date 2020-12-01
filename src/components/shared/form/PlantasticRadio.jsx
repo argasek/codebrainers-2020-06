@@ -6,15 +6,15 @@ const PlantasticRadio = React.memo(({ field, form: { touched, errors, values, se
     <CustomInput
       { ...props }
       type="radio"
-      name={field.name}
-      invalid={!!(touched[field.name] && errors[field.name])}
-      checked={values[field.name] === field.value}
-      value={field.value}
-      onChange={(event, value) => setFieldValue(field.name, field.value)}
+      name={ field.name }
+      invalid={ !!(touched[field.name] && errors[field.name]) }
+      checked={ values[field.name] === field.value }
+      value={ field.value }
+      onChange={ (event, value) => setFieldValue(field.name, field.value) }
     >
-      { touched[field.name] && errors[field.name] && <FormFeedback>{errors[field.name]}</FormFeedback>}
+      { touched[field.name] && errors[field.name] && <FormFeedback>{ errors[field.name] }</FormFeedback> }
     </CustomInput>
-  )
+  );
 });
 
 export default PlantasticRadio;

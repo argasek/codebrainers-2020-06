@@ -1,17 +1,25 @@
-import React from "react";
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-
-const InProgress = ({ inProgress }) => {
-  const icon = 'spinner';
-  return (inProgress ?
+const InProgress = ({ inProgress, label }) => {
+  return inProgress === true ?
     <p>
-      <FontAwesomeIcon icon={faSpinner} spin />
+      <FontAwesomeIcon icon={ faSpinner } spin />
       { ' ' }
-      Loading data...
-    </p>
-    : null)
+      { label }
+    </p>:
+    null;
+};
+
+InProgress.defaultProps = {
+  label: 'Loading data…'
+};
+
+InProgress.propTypes = {
+  inProgress: PropTypes.bool.isRequired,
+  label: PropTypes.string,
 };
 
 export default InProgress;

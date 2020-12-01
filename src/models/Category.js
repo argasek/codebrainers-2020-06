@@ -1,16 +1,23 @@
+import { JsonObject, JsonProperty, JsonType } from 'ta-json';
+
+@JsonObject()
 class Category {
 
-    id = undefined;
-    url = "";
-    name = "";
-    slug = "";
+  @JsonType(Number)
+  @JsonProperty()
+  id = undefined;
 
-    fromPlain(item) {
-        this.id = item.id;
-        this.name = item.name;
-        this.url = item.url;
-        this.slug = item.slug;
-    }
+  @JsonType(String)
+  @JsonProperty()
+  name = '';
+
+  @JsonType(String)
+  @JsonProperty()
+  url = '';
+
+  @JsonType(String)
+  @JsonProperty()
+  slug = '';
 
 }
 

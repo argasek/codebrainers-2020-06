@@ -1,38 +1,69 @@
+import { JsonConverter, JsonObject, JsonProperty, JsonType } from 'ta-json';
+import MomentSerializer from 'serializers/MomentSerializer';
+
+@JsonObject()
 class Plant {
+  @JsonType(Boolean)
+  @JsonProperty()
   blooming = false;
-  categoryId = undefined;
+
+  @JsonType(Number)
+  @JsonProperty()
+  category = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
   categorySlug = '';
+
+  @JsonType(Number)
+  @JsonProperty()
   difficulty = 1;
-  fertilizingInterval = undefined;
+
+  @JsonType(Number)
+  @JsonProperty()
+  fertilizingInterval = 0;
+
+  @JsonType(Number)
+  @JsonProperty()
   id = undefined;
+
+  @JsonProperty()
+  @JsonConverter(new MomentSerializer())
+  @JsonType(String)
   lastFertilized = undefined;
+
+  @JsonProperty()
+  @JsonConverter(new MomentSerializer())
+  @JsonType(String)
   lastWatered = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
   name = '';
+
+  @JsonType(String)
+  @JsonProperty()
   requiredExposure = '';
+
+  @JsonType(String)
+  @JsonProperty()
   requiredHumidity = '';
+
+  @JsonType(String)
+  @JsonProperty()
   requiredTemperature = '';
+
+  @JsonType(Number)
+  @JsonProperty()
   room = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
   url = '';
-  wateringInterval = undefined;
 
-  fromPlain(item) {
-    this.blooming = item.blooming;
-    this.categoryId = item.category;
-    this.categorySlug = item.category_slug;
-    this.difficulty = item.difficulty;
-    this.fertilizingInterval = item.fertilizing_interval;
-    this.id = item.id;
-    this.lastFertilized = item.last_fertilized;
-    this.lastWatered = item.last_watered;
-    this.name = item.name;
-    this.requiredExposure = item.required_exposure;
-    this.requiredHumidity = item.required_humidity;
-    this.requiredTemperature = item.required_temperature;
-    this.room = item.room;
-    this.url = item.url;
-    this.wateringInterval = item.watering_interval;
-  }
-
+  @JsonType(Number)
+  @JsonProperty()
+  wateringInterval = 0;
 }
 
 export default Plant;

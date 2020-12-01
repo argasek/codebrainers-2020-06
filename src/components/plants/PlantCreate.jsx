@@ -1,23 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
-import PlantForm from "./PlantForm";
-import { Card, CardBody } from "reactstrap";
+import React, { useState } from 'react';
+import PlantForm from './plant-form/PlantForm';
+import { Card, CardBody, CardHeader } from 'reactstrap';
 
 const PlantCreate = (props) => {
+  const [ plantName, setPlantName ] = useState('');
   return (
-    <Card className="mb-4">
+    <Card className="mb-4" color="light">
+      <CardHeader>
+        Create Plant: <span className="font-weight-semibold">{ plantName }</span>
+      </CardHeader>
       <CardBody>
-        <PlantForm {...props} />
+        <h3 className="mb-4">Create plant</h3>
+        <PlantForm onPlantNameChange={ setPlantName } { ...props } />
       </CardBody>
     </Card>
   );
 };
 
-PlantCreate.propTypes = {
-  fertilizingFrequency: PropTypes.string.isRequired,
-  inputOnChange: PropTypes.func.isRequired,
-  plantName: PropTypes.string.isRequired,
-  someSelectField: PropTypes.string.isRequired,
-};
+PlantCreate.propTypes = {};
 
 export default PlantCreate;
