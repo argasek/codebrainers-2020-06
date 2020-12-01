@@ -4,9 +4,8 @@ import PropTypes from "prop-types";
 import PlantItem from "components/plants/PlantItem";
 import axios from "axios";
 import Plant from "models/plant";
-import Category from 'models/category';
 import withCategories from 'components/withCategories';
-
+import withRooms from "components/withRooms";
 
 const CATEGORIES_FETCH_DELAY = 2000;
 const PLANTS_FETCH_DELAY = 2000;
@@ -29,6 +28,7 @@ class Plants extends React.PureComponent {
     });
 
     this.props.fetchCategories();
+    this.props.fetchRooms();
 
     this.fetchPlants().finally(() => {
       this.setState({ plantsInProgress: false });
@@ -72,6 +72,8 @@ class Plants extends React.PureComponent {
       <PlantItem
         categories={this.props.categories}
         categoriesSuccess={this.props.categoriesSuccess}
+        rooms={this.props.rooms}
+        roomsSuccess={this.props.roomsSuccess}
         plant={ plant }
         key={ plant.id }
         isLastItems={ this.isWithinLastIndices(arr, 3, index) }
@@ -104,4 +106,4 @@ Plants.propTypes = {
   delayFetch: PropTypes.func.isRequired,
 };
 
-export default withCategories(Plants);
+export default withRooms(withCategories(Plants));
