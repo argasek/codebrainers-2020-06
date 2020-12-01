@@ -35,6 +35,7 @@ class PlantasticContainer extends React.PureComponent {
           </Route>
           <Route path={ROUTE_CATEGORIES}>
             <Categories
+              categories={[]}
               delayFetch={delayFetch}
             />
           </Route>

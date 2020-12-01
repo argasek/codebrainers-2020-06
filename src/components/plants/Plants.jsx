@@ -5,6 +5,7 @@ import PlantItem from "components/plants/PlantItem";
 import axios from "axios";
 import Plant from "models/plant";
 import Category from 'models/category';
+import withCategories from 'components/withCategories';
 
 
 const CATEGORIES_FETCH_DELAY = 2000;
@@ -14,9 +15,6 @@ class Plants extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      categories: [],
-      categoriesInProgress: false,
-      categoriesSuccess: undefined,
       plants: [],
       plantsInProgress: false,
       plantsSuccess: undefined,
@@ -24,41 +22,16 @@ class Plants extends React.PureComponent {
   }
 
   componentDidMount() {
-    const categoriesInProgress = true;
     const plantsInProgress = true;
 
     this.setState({
-      categoriesInProgress,
       plantsInProgress
     });
 
-    this.fetchCategories().finally(() => {
-      this.setState({ categoriesInProgress: false });
-    });
+    this.props.fetchCategories();
 
     this.fetchPlants().finally(() => {
       this.setState({ plantsInProgress: false });
-    });
-  }
-
-  fetchCategories() {
-    const requestUrl = 'http://gentle-tor-07382.herokuapp.com/categories/';
-    return this.props.delayFetch(CATEGORIES_FETCH_DELAY, (resolve, reject) => {
-      return axios.get(requestUrl)
-        .then((response) => {
-          const data = response.data;
-          const categories = data.map((item) => {
-            const category = new Category();
-            return category.fromPlain(item);
-          });
-          const categoriesSuccess = true;
-          this.setState({ categories, categoriesSuccess });
-          resolve(response);
-        })
-        .catch((error) => {
-          this.setState({ categoriesSuccess: false });
-          reject(error);
-        });
     });
   }
 
@@ -97,8 +70,8 @@ class Plants extends React.PureComponent {
   plantsMapper = (plant, index, arr) => (
     <Col lg={ 4 } xl={ 3 } md={ 2 }>
       <PlantItem
-        categories={this.state.categories}
-        categoriesSuccess={this.state.categoriesSuccess}
+        categories={this.props.categories}
+        categoriesSuccess={this.props.categoriesSuccess}
         plant={ plant }
         key={ plant.id }
         isLastItems={ this.isWithinLastIndices(arr, 3, index) }
@@ -110,8 +83,6 @@ class Plants extends React.PureComponent {
 
   render() {
     const {
-      categoriesInProgress,
-      categoriesSuccess,
       plants,
       plantsInProgress,
       plantsSuccess,
@@ -133,4 +104,4 @@ Plants.propTypes = {
   delayFetch: PropTypes.func.isRequired,
 };
 
-export default Plants;
+export default withCategories(Plants);

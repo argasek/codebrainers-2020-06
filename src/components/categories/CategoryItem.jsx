@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './CategoryItem.scss';
 import { ListGroupItem } from "reactstrap";
+import Category from 'models/category';
 
 class CategoryItem extends React.PureComponent {
 
@@ -49,7 +50,7 @@ class CategoryItem extends React.PureComponent {
 
     return (
       <ListGroupItem className={this.state.className} onClick={ onClick }>
-        { category }
+        { category.name }
       </ListGroupItem>
     );
   }
@@ -57,7 +58,7 @@ class CategoryItem extends React.PureComponent {
 }
 
 CategoryItem.propTypes = {
-  category: PropTypes.string.isRequired,
+  category: PropTypes.instanceOf(Category).isRequired,
   label: PropTypes.string,
   isLastItem: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired
