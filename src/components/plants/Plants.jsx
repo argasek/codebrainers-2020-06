@@ -1,4 +1,4 @@
-import { Card, CardBody, Col, Row } from "reactstrap";
+import { Card, CardBody, Col, Row, Spinner, Progress } from "reactstrap";
 import React from "react";
 import PropTypes from "prop-types";
 import PlantItem from "components/plants/PlantItem";
@@ -7,8 +7,8 @@ import Plant from "models/plant";
 import Category from 'models/category';
 
 
-const CATEGORIES_FETCH_DELAY = 2000;
-const PLANTS_FETCH_DELAY = 2000;
+const CATEGORIES_FETCH_DELAY = 1000;
+const PLANTS_FETCH_DELAY = 1000;
 
 class Plants extends React.PureComponent {
   constructor(props) {
@@ -118,19 +118,29 @@ class Plants extends React.PureComponent {
     } = this.state;
 
     return (
-      <Card className="mb-4">
+      categoriesSuccess && plantsSuccess ?
+      <React.Fragment>
+            <Card className="mb-4">
         <CardBody>
           <Row>
-            { plants.map(this.plantsMapper) }
+            {plants.map(this.plantsMapper)}
           </Row>
         </CardBody>
       </Card>
-    );
-  }
+      </React.Fragment>: <Spinner color="dark"/>
+        )
 }
+        }
 
 Plants.propTypes = {
   delayFetch: PropTypes.func.isRequired,
 };
-
+Spinner.propTypes = {
+  type: PropTypes.string, // default: 'border'
+  size: PropTypes.string,
+  color: PropTypes.string,
+  className: PropTypes.string,
+  cssModule: PropTypes.object,
+  children: PropTypes.string, // default: 'Loading...'
+};
 export default Plants;

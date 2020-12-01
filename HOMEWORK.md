@@ -10,7 +10,7 @@ Display progress indicator on Plants page as long as *both*
 
 #### Task 2.
 
-Instead of showing `?` as Category name show spinner.
+Instead of showing `?` as Category** name show spinner.
 
 #### Task 3.
 
