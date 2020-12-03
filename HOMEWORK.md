@@ -1,6 +1,51 @@
 
 ## Codebrainers 2020-06
 
+### Homework 2020-12-03 (final!)
+
+#### Task 1.*
+
+As you noticed, when `PlantForm` (used in both contexts of
+editing and creating a new plant) is submitted, no proper
+client or server-side validation is handled. Client validation
+is not handled simply because it's not implemented; server side
+validation, on the other hand, is implemented, but not taken care
+of by client side code.
+
+Using `LoginForm` component as a template, try to add at least
+a client side validation to the `PlantForm`.
+
+#### Task 2.**
+
+Excellent! Now add handling of server-side validation. Notice:
+you will need to, obviously, disable client side validation
+first (only temporarily).
+
+### Homework 2020-11-28
+
+#### Task 1.
+
+Display progress indicator on Plants page as long as *both*
+`categories` and `plants` are not fetched.
+
+#### Task 2.
+
+Instead of showing `?` as Category name show spinner.
+
+#### Task 3.
+
+Bring back displaying of Categories to **Categories** tab.
+
+#### Task 4.
+
+OK, so you brought Categories back to life. Don't you think
+there's a lot repeated code in your codebase? If you think there
+is not, what are the consequences.
+
+Hint: you can either copy-paste logic to `Categories` or place
+fetching of Categories somewhere else. What are the consequences
+of the 2nd approach.
+
 ### Homework 2020-11-24
 
 
