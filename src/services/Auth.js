@@ -19,7 +19,7 @@ class Auth {
 
   static appendAxiosAuthorizationHeader(token) {
     return function () {
-      const isAuthenticated = token !== Auth.emptyToken;
+      const isAuthenticated = token && token !== Auth.emptyToken;
       if (isAuthenticated) {
         const value = Auth.getHeaderValueFromToken(token);
         axios.defaults.headers.common[Auth.httpHeader] = value;

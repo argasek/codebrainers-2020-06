@@ -9,7 +9,7 @@ const Authenticated = React.lazy(() => import('pages/authenticated/Authenticated
 const App = () => {
 
   const [ token, setToken ] = useState(Auth.getTokenFromStorage());
-  const isAuthenticated = token !== Auth.emptyToken;
+  const isAuthenticated = token && token !== Auth.emptyToken;
 
   const onTokenObtained = (token) => {
     Auth.putTokenToStorage(token);
