@@ -4,13 +4,12 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 const InProgress = ({ inProgress, label }) => {
-  return inProgress === true ?
+  return inProgress &&
     <p>
       <FontAwesomeIcon icon={ faSpinner } spin />
       { ' ' }
       { label }
-    </p>:
-    null;
+    </p>;
 };
 
 InProgress.defaultProps = {
